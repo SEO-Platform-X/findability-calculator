@@ -32,14 +32,12 @@ node scripts/refresh-data.mjs --from-file data/latest.json
 
 ### 2. Live volume for user-added clusters (Cloudflare Worker)
 
-Visitors can type their own cluster into the calculator. By default those get an estimated volume. To make them pull real Ahrefs volume, deploy the proxy worker:
+Visitors can type their own cluster into the calculator. By default those get an estimated volume. To make them pull real Ahrefs volume, deploy the proxy worker straight from GitHub:
 
-```
-cd worker
-npx wrangler deploy
-npx wrangler secret put AHREFS_API_KEY
-```
+1. Create a Cloudflare API token at dash.cloudflare.com > My Profile > API Tokens, using the "Edit Cloudflare Workers" template.
+2. Add repo secrets (Settings > Secrets and variables > Actions): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (shown on your Cloudflare dashboard sidebar), and `AHREFS_API_KEY` if not added already.
+3. Actions tab > "Deploy lookup worker" > Run workflow.
 
-Wrangler prints the worker URL (something like `https://findability-lookup.YOURNAME.workers.dev`). Paste it into the `window.AHREFS_LOOKUP_URL` config near the top of `index.html` and push.
+The workflow deploys the worker, sets its Ahrefs key, writes the worker URL into `index.html`, pushes, and smoke tests a live lookup. If you ever deploy the worker manually instead (`cd worker && npx wrangler deploy && npx wrangler secret put AHREFS_API_KEY`), run the same workflow with the worker URL pasted into its input field and it will just wire up the site.
 
 The worker keeps the API key server side, locks CORS to this site, validates keywords, caches results for 30 days, and throttles uncached lookups to 20 per hour per IP. Each uncached lookup costs 10 Ahrefs units; cached lookups cost nothing. If the worker is unreachable or rate limited, the calculator quietly falls back to the estimate.

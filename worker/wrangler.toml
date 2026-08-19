@@ -1,0 +1,3 @@
+name = "findability-lookup"
+main = "ahrefs-lookup.js"
+compatibility_date = "2026-08-01"

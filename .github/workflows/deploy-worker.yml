@@ -32,9 +32,14 @@ jobs:
             echo "::error::Missing CLOUDFLARE_API_TOKEN repo secret. Create one at dash.cloudflare.com > My Profile > API Tokens using the 'Edit Cloudflare Workers' template."
             exit 1
           fi
-          npx --yes wrangler@3 deploy 2>&1 | tee deploy.log
+          set -o pipefail
+          if ! npx --yes wrangler@4 deploy 2>&1 | tee deploy.log; then
+            grep -iE 'error|fail|auth|token|denied|code' deploy.log | head -8 | while read -r l; do echo "::error::wrangler: $l"; done
+            exit 1
+          fi
           URL=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           if [ -z "$URL" ]; then
+            tail -8 deploy.log | while read -r l; do echo "::error::wrangler: $l"; done
             echo "::error::Could not detect worker URL from wrangler output."
             exit 1
           fi
@@ -52,7 +57,7 @@ jobs:
             echo "::error::Missing AHREFS_API_KEY repo secret (same one the monthly refresh uses)."
             exit 1
           fi
-          printf '%s' "$AHREFS_API_KEY" | npx --yes wrangler@3 secret put AHREFS_API_KEY
+          printf '%s' "$AHREFS_API_KEY" | npx --yes wrangler@4 secret put AHREFS_API_KEY
 
       - name: Use provided URL instead
         if: ${{ inputs.worker_url != '' }}

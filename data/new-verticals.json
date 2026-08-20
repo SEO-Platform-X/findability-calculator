@@ -1,0 +1,124 @@
+{
+  "verticals": {
+    "Lawyer": {
+      "value": 3500,
+      "clusters": [
+        { "name": "Personal injury lawyer", "kw": "personal injury lawyer", "examples": ["best personal injury lawyer near me", "how much is my injury case worth", "do I need a lawyer after an accident"] },
+        { "name": "Car accident lawyer", "kw": "car accident lawyer", "examples": ["car accident lawyer no injury", "should I get a lawyer for a fender bender", "average car accident settlement"] },
+        { "name": "DUI defense", "kw": "dui lawyer", "examples": ["dui lawyer cost", "first offense dui what happens", "best dui attorney near me"] },
+        { "name": "Divorce lawyer", "kw": "divorce lawyer", "examples": ["divorce lawyer for men", "how much does a divorce cost", "divorce lawyer free consultation"] },
+        { "name": "Immigration lawyer", "kw": "immigration lawyer", "examples": ["immigration lawyer near me", "green card lawyer cost", "best immigration attorney"] },
+        { "name": "Workers comp", "kw": "workers comp lawyer", "examples": ["workers comp lawyer free consultation", "can I sue my employer for injury", "workers comp settlement amounts"] },
+        { "name": "Estate planning", "kw": "estate planning attorney", "examples": ["estate planning attorney near me", "do I need a will or a trust", "cost to set up a living trust"] },
+        { "name": "Criminal defense", "kw": "criminal defense lawyer", "examples": ["criminal defense lawyer near me", "best defense attorney for felony", "how much does a criminal lawyer cost"] },
+        { "name": "Bankruptcy", "kw": "bankruptcy lawyer", "examples": ["bankruptcy lawyer near me", "chapter 7 vs chapter 13", "how much does bankruptcy cost"] },
+        { "name": "Medical malpractice", "kw": "medical malpractice lawyer", "examples": ["medical malpractice lawyer near me", "can I sue my doctor", "malpractice settlement examples"] }
+      ]
+    },
+    "Dispensary": {
+      "value": 600,
+      "clusters": [
+        { "name": "Dispensary near me", "kw": "dispensary near me", "examples": ["best dispensary near me", "dispensary open now", "closest recreational dispensary"] },
+        { "name": "Weed delivery", "kw": "weed delivery", "examples": ["weed delivery near me", "fastest weed delivery", "is weed delivery legal in my state"] },
+        { "name": "Edibles", "kw": "edibles", "examples": ["best edibles for sleep", "how long do edibles take to kick in", "strongest edibles near me"] },
+        { "name": "THC gummies", "kw": "thc gummies", "examples": ["best thc gummies", "thc gummies for anxiety", "thc gummy dosage guide"] },
+        { "name": "CBD products", "kw": "cbd oil", "examples": ["best cbd oil for pain", "cbd vs thc difference", "where to buy cbd near me"] },
+        { "name": "Cannabis delivery", "kw": "cannabis delivery", "examples": ["cannabis delivery near me", "same day cannabis delivery", "cannabis delivery first time discount"] },
+        { "name": "Best dispensary", "kw": "best dispensary", "examples": ["best dispensary deals near me", "highest rated dispensary", "best dispensary for beginners"] },
+        { "name": "Delta 8", "kw": "delta 8", "examples": ["what is delta 8", "delta 8 vs delta 9", "is delta 8 legal in my state"] },
+        { "name": "Pre-rolls & flower", "kw": "weed near me", "examples": ["weed near me open now", "best strains for relaxing", "cheapest ounce near me"] },
+        { "name": "Marijuana dispensary", "kw": "marijuana dispensary", "examples": ["marijuana dispensary near me", "do I need a card for a dispensary", "first time dispensary tips"] }
+      ]
+    },
+    "Restaurant": {
+      "value": 300,
+      "clusters": [
+        { "name": "Restaurants near me", "kw": "restaurants near me", "examples": ["best restaurants near me", "restaurants open now", "where should I eat tonight"] },
+        { "name": "Pizza", "kw": "pizza near me", "examples": ["best pizza near me", "pizza delivery near me", "ny style pizza nearby"] },
+        { "name": "Sushi", "kw": "sushi near me", "examples": ["best sushi near me", "all you can eat sushi", "omakase near me"] },
+        { "name": "Brunch", "kw": "brunch near me", "examples": ["best brunch near me", "bottomless mimosa brunch", "brunch spots with outdoor seating"] },
+        { "name": "Steakhouse", "kw": "steakhouse near me", "examples": ["best steakhouse near me", "steakhouse for anniversary dinner", "affordable steakhouse nearby"] },
+        { "name": "Mexican food", "kw": "mexican food near me", "examples": ["best mexican food near me", "authentic tacos near me", "mexican restaurant with margaritas"] },
+        { "name": "Breakfast", "kw": "breakfast near me", "examples": ["best breakfast near me", "breakfast open now", "breakfast burrito near me"] },
+        { "name": "Italian restaurant", "kw": "italian restaurant near me", "examples": ["best italian restaurant near me", "romantic italian dinner spot", "fresh pasta near me"] },
+        { "name": "Happy hour", "kw": "happy hour near me", "examples": ["best happy hour near me", "happy hour deals today", "late night happy hour"] },
+        { "name": "Chinese food", "kw": "chinese food near me", "examples": ["best chinese food near me", "chinese delivery near me", "dim sum near me"] }
+      ]
+    },
+    "Real Estate": {
+      "value": 9000,
+      "clusters": [
+        { "name": "Homes for sale", "kw": "homes for sale", "examples": ["homes for sale near me", "homes for sale under 500k", "new listings this week"] },
+        { "name": "Realtor near me", "kw": "realtor near me", "examples": ["best realtor near me", "top rated real estate agent", "how to choose a realtor"] },
+        { "name": "Houses for sale", "kw": "houses for sale near me", "examples": ["houses for sale near me with pool", "cheap houses for sale nearby", "houses with big yards for sale"] },
+        { "name": "Apartments for rent", "kw": "apartments for rent", "examples": ["apartments for rent near me", "pet friendly apartments", "apartments with move in specials"] },
+        { "name": "Real estate agent", "kw": "real estate agent", "examples": ["real estate agent near me", "agent for first time buyers", "real estate agent commission explained"] },
+        { "name": "Condos for sale", "kw": "condos for sale", "examples": ["condos for sale near me", "condo vs house pros and cons", "condos with low hoa fees"] },
+        { "name": "Sell my house", "kw": "sell my house", "examples": ["sell my house fast", "what is my home worth", "best time to sell a house"] },
+        { "name": "Open houses", "kw": "open houses near me", "examples": ["open houses near me this weekend", "open houses today", "what to ask at an open house"] },
+        { "name": "First time buyer", "kw": "first time home buyer", "examples": ["first time home buyer programs", "how much down payment do I need", "first time buyer mistakes to avoid"] },
+        { "name": "New construction", "kw": "new construction homes", "examples": ["new construction homes near me", "new build vs resale", "new construction incentives right now"] }
+      ]
+    },
+    "Auto Services": {
+      "value": 450,
+      "clusters": [
+        { "name": "Auto repair", "kw": "auto repair near me", "examples": ["best auto repair near me", "trustworthy mechanic nearby", "auto repair open saturday"] },
+        { "name": "Mechanic", "kw": "mechanic near me", "examples": ["mobile mechanic near me", "honest mechanic near me", "mechanic that does free estimates"] },
+        { "name": "Oil change", "kw": "oil change near me", "examples": ["cheapest oil change near me", "oil change open now", "how often do I need an oil change"] },
+        { "name": "Brake repair", "kw": "brake repair", "examples": ["brake repair cost", "brakes squeaking what does it mean", "brake pad replacement near me"] },
+        { "name": "Tire shop", "kw": "tire shop near me", "examples": ["tire shop near me open now", "cheapest place to buy tires", "flat tire repair near me"] },
+        { "name": "Transmission", "kw": "transmission repair", "examples": ["transmission repair cost", "transmission slipping symptoms", "rebuild vs replace transmission"] },
+        { "name": "Car detailing", "kw": "car detailing near me", "examples": ["best car detailing near me", "interior detailing cost", "mobile car detailing"] },
+        { "name": "Windshield", "kw": "windshield replacement", "examples": ["windshield replacement near me", "windshield chip repair cost", "does insurance cover windshield"] },
+        { "name": "Body shop", "kw": "body shop near me", "examples": ["best body shop near me", "collision repair estimate", "body shop that works with insurance"] },
+        { "name": "AC repair", "kw": "car ac repair", "examples": ["car ac repair near me", "car ac blowing hot air", "car ac recharge cost"] }
+      ]
+    },
+    "Veterinarian": {
+      "value": 700,
+      "clusters": [
+        { "name": "Vet near me", "kw": "veterinarian near me", "examples": ["best veterinarian near me", "vet accepting new patients", "affordable vet nearby"] },
+        { "name": "Emergency vet", "kw": "emergency vet near me", "examples": ["emergency vet open now", "24 hour animal hospital", "my dog ate chocolate what do I do"] },
+        { "name": "Animal hospital", "kw": "animal hospital", "examples": ["animal hospital near me", "animal hospital vs vet clinic", "best animal hospital nearby"] },
+        { "name": "Pet dental", "kw": "dog teeth cleaning", "examples": ["dog teeth cleaning cost", "does my dog need a dental cleaning", "anesthesia free dog teeth cleaning"] },
+        { "name": "Spay & neuter", "kw": "low cost spay and neuter", "examples": ["low cost spay and neuter near me", "how much does neutering cost", "best age to spay a puppy"] },
+        { "name": "Vaccinations", "kw": "pet vaccinations near me", "examples": ["pet vaccinations near me", "puppy shot schedule", "low cost pet vaccine clinic"] },
+        { "name": "24 hour vet", "kw": "24 hour vet", "examples": ["24 hour vet near me", "after hours vet care", "overnight pet emergency"] },
+        { "name": "Cat vet", "kw": "cat vet near me", "examples": ["cat only vet near me", "cat not eating when to worry", "cat vaccines cost"] },
+        { "name": "Pet allergies", "kw": "dog allergy treatment", "examples": ["dog itching home remedies vs vet", "dog allergy testing cost", "best treatment for dog skin allergies"] },
+        { "name": "Exotic pets", "kw": "exotic vet near me", "examples": ["exotic vet near me", "vet for rabbits near me", "reptile vet nearby"] }
+      ]
+    },
+    "Beauty & Salon": {
+      "value": 800,
+      "clusters": [
+        { "name": "Hair salon", "kw": "hair salon near me", "examples": ["best hair salon near me", "hair salon for curly hair", "salon open sunday"] },
+        { "name": "Nail salon", "kw": "nail salon near me", "examples": ["best nail salon near me", "nail salon open now", "gel x nails near me"] },
+        { "name": "Barber shop", "kw": "barber shop near me", "examples": ["best barber near me", "barber that does fades", "walk in barber shop"] },
+        { "name": "Lash extensions", "kw": "lash extensions", "examples": ["lash extensions near me", "hybrid vs volume lashes", "how long do lash extensions last"] },
+        { "name": "Balayage", "kw": "balayage", "examples": ["balayage near me", "balayage vs highlights", "balayage cost"] },
+        { "name": "Waxing", "kw": "brazilian wax near me", "examples": ["brazilian wax near me", "waxing vs sugaring", "first brazilian wax tips"] },
+        { "name": "Spray tan", "kw": "spray tan near me", "examples": ["best spray tan near me", "how long does a spray tan last", "spray tan before event timing"] },
+        { "name": "Brow services", "kw": "brow lamination", "examples": ["brow lamination near me", "brow lamination vs microblading", "how long does brow lamination last"] },
+        { "name": "Keratin treatment", "kw": "keratin treatment", "examples": ["keratin treatment near me", "keratin treatment cost", "is keratin safe for my hair"] },
+        { "name": "Mens haircut", "kw": "mens haircut near me", "examples": ["mens haircut near me", "best mens haircut for round face", "cheap mens haircut nearby"] }
+      ]
+    },
+    "Home Services": {
+      "value": 1200,
+      "clusters": [
+        { "name": "Plumber", "kw": "plumber near me", "examples": ["emergency plumber near me", "plumber open now", "how much do plumbers charge"] },
+        { "name": "Electrician", "kw": "electrician near me", "examples": ["licensed electrician near me", "electrician cost per hour", "electrician for panel upgrade"] },
+        { "name": "HVAC repair", "kw": "hvac repair near me", "examples": ["hvac repair near me", "ac not cooling what to check", "hvac tune up cost"] },
+        { "name": "Roof repair", "kw": "roof repair", "examples": ["roof repair near me", "roof leak repair cost", "repair or replace my roof"] },
+        { "name": "Garage door", "kw": "garage door repair", "examples": ["garage door repair near me", "garage door spring replacement cost", "garage door won't open"] },
+        { "name": "Pest control", "kw": "pest control near me", "examples": ["best pest control near me", "pest control cost", "how to get rid of ants permanently"] },
+        { "name": "House cleaning", "kw": "house cleaning services", "examples": ["house cleaning services near me", "deep cleaning cost", "move out cleaning service"] },
+        { "name": "Landscaping", "kw": "landscaping near me", "examples": ["landscaping companies near me", "landscape design cost", "low maintenance yard ideas"] },
+        { "name": "Water heater", "kw": "water heater replacement", "examples": ["water heater replacement cost", "tankless vs tank water heater", "water heater leaking what to do"] },
+        { "name": "AC repair", "kw": "ac repair near me", "examples": ["ac repair near me open now", "ac repair cost", "why is my ac freezing up"] }
+      ]
+    }
+  }
+}

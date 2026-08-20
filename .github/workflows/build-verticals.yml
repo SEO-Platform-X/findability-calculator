@@ -1,0 +1,40 @@
+name: Build new verticals
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Fetch data and splice verticals
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: |
+          node scripts/build-verticals.mjs 2>&1 | tee build.log
+          grep -E "Added verticals|keywords.json now|Got data" build.log | while read -r l; do echo "::notice::$l"; done
+      - name: Syntax check bundle
+        run: |
+          python3 -c "
+          import re
+          html = open('index.html').read()
+          js = re.findall(r'<script>\n?(.*?)\n?</script>', html, re.S)
+          open('/tmp/b.js','w').write(js[-2] if len(js)>1 else js[0])
+          "
+          node --check /tmp/b.js
+      - name: Commit and push
+        run: |
+          git config user.name "vertical-builder-bot"
+          git config user.email "actions@github.com"
+          git add index.html data/keywords.json
+          if git diff --cached --quiet; then echo "No changes."; else
+            git commit -m "feat: add business verticals with live Ahrefs data"
+            git push
+          fi

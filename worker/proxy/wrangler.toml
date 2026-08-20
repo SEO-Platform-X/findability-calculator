@@ -1,7 +1,4 @@
 name = "calculator-site"
 main = "proxy.js"
 compatibility_date = "2026-08-01"
-routes = [
-  { pattern = "localai.life/*", zone_name = "localai.life" },
-  { pattern = "www.localai.life/*", zone_name = "localai.life" }
-]
+workers_dev = false

@@ -74,22 +74,22 @@ jobs:
           fi
           printf '%s' "$AHREFS_API_KEY" | npx --yes wrangler@4 secret put AHREFS_API_KEY
 
-      - name: Wire localai.life DNS and deploy calculator proxy
+      - name: Deploy calculator proxy and attach localai.life
         if: ${{ inputs.worker_url == '' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          ZID=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"             "https://api.cloudflare.com/client/v4/zones?name=localai.life"             | python3 -c "import json,sys; r=json.load(sys.stdin)['result']; print(r[0]['id'] if r else '')")
-          if [ -z "$ZID" ]; then echo "::warning::localai.life zone not found, skipping domain wiring"; exit 0; fi
+          CF="https://api.cloudflare.com/client/v4"
+          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          ZID=$(curl -s -H "$AUTH" "$CF/zones?name=localai.life" | python3 -c "import json,sys; r=json.load(sys.stdin)['result']; print(r[0]['id'] if r else '')")
+          if [ -z "$ZID" ]; then echo "::warning::localai.life zone not found, skipping"; exit 0; fi
+          # remove placeholder AAAA records so custom domain attachment can create its own
           for NAME in localai.life www.localai.life; do
-            EXISTS=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"               "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records?name=$NAME"               | python3 -c "import json,sys; print(len(json.load(sys.stdin)['result']))")
-            if [ "$EXISTS" = "0" ]; then
-              R=$(curl -s -X POST -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json"                 "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records"                 -d "{"type":"AAAA","name":"$NAME","content":"100::","proxied":true}")
-              echo "::notice::DNS $NAME: $(echo "$R" | python3 -c "import json,sys; print(json.load(sys.stdin)['success'])")"
-            else
-              echo "DNS record for $NAME already exists"
-            fi
+            curl -s -H "$AUTH" "$CF/zones/$ZID/dns_records?name=$NAME&type=AAAA&content=100::"               | python3 -c "import json,sys; [print(r['id']) for r in json.load(sys.stdin)['result']]"               | while read -r RID; do
+                  curl -s -X DELETE -H "$AUTH" "$CF/zones/$ZID/dns_records/$RID" > /dev/null
+                  echo "removed placeholder record on $NAME"
+                done
           done
           cd worker/proxy
           set -o pipefail
@@ -97,7 +97,17 @@ jobs:
             grep -iE 'error|fail|auth|denied' proxy.log | head -6 | while read -r l; do echo "::error::proxy: $l"; done
             exit 1
           fi
-          echo "::notice::proxy deployed with routes localai.life/* and www.localai.life/*"
+          for HOST in localai.life www.localai.life; do
+            R=$(curl -s -X PUT -H "$AUTH" -H "Content-Type: application/json" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/domains"               -d "{\"zone_id\":\"$ZID\",\"hostname\":\"$HOST\",\"service\":\"calculator-site\",\"environment\":\"production\"}")
+            OK=$(echo "$R" | python3 -c "import json,sys; print(json.load(sys.stdin).get('success'))")
+            echo "::notice::custom domain $HOST attach: $OK $(echo "$R" | python3 -c "import json,sys; d=json.load(sys.stdin); print('' if d.get('success') else json.dumps(d.get('errors'))[:200])")"
+          done
+          for i in $(seq 1 12); do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://localai.life/calculator/" || echo err)
+            [ "$CODE" = "200" ] && break
+            echo "waiting for localai.life ($CODE), retry $i"; sleep 20
+          done
+          echo "::notice::localai.life/calculator/ -> HTTP $CODE"
 
       - name: Use provided URL instead
         if: ${{ inputs.worker_url != '' }}
@@ -140,7 +150,7 @@ jobs:
           echo "keyword lookup: HTTP $STATUS"
           echo "::notice::keyword lookup [$STATUS]: $(cat /tmp/resp.json 2>/dev/null | head -c 300)"
           [ "$STATUS" = "200" ]
-          PSTATUS=$(curl -s -o /tmp/profile.json -w "%{http_code}" "$WORKER_URL/profile?domain=parkhurstnuvision.com" -H "Origin: https://seo-platform-x.github.io")
+          PSTATUS=$(curl -s -o /tmp/profile.json -w "%{http_code}" "$WORKER_URL/profile?domain=sanantonio-lasik.com" -H "Origin: https://seo-platform-x.github.io")
           echo "profile: HTTP $PSTATUS"
           echo "::notice::profile [$PSTATUS]: $(cat /tmp/profile.json 2>/dev/null | head -c 500)"
           [ "$PSTATUS" = "200" ]

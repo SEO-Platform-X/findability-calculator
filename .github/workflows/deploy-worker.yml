@@ -32,6 +32,21 @@ jobs:
             echo "::error::Missing CLOUDFLARE_API_TOKEN repo secret. Create one at dash.cloudflare.com > My Profile > API Tokens using the 'Edit Cloudflare Workers' template."
             exit 1
           fi
+          # ensure the account has a workers.dev subdomain (one-time on new accounts)
+          SUB=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); print((d.get('result') or {}).get('subdomain') or '')")
+          if [ -z "$SUB" ]; then
+            for CAND in localairegistry localairegistry-app lar-$(echo $CLOUDFLARE_ACCOUNT_ID | cut -c1-6); do
+              R=$(curl -s -X PUT -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" \
+                "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain" \
+                -d "{\"subdomain\":\"$CAND\"}")
+              OK=$(echo "$R" | python3 -c "import json,sys; print(json.load(sys.stdin).get('success'))")
+              if [ "$OK" = "True" ]; then echo "Registered workers.dev subdomain: $CAND"; SUB=$CAND; break; fi
+              echo "Subdomain $CAND unavailable, trying next"
+            done
+          fi
+          if [ -z "$SUB" ]; then echo "::error::Could not register a workers.dev subdomain."; exit 1; fi
           set -o pipefail
           if ! npx --yes wrangler@4 deploy 2>&1 | tee deploy.log; then
             grep -iE 'error|fail|auth|token|denied|code' deploy.log | head -8 | while read -r l; do echo "::error::wrangler: $l"; done

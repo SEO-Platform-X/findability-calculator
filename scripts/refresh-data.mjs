@@ -111,15 +111,73 @@ function patchIndex(snapshot) {
   }
 }
 
-const fromFileIdx = process.argv.indexOf("--from-file");
-let snapshot;
-if (fromFileIdx !== -1) {
-  snapshot = loadFromFile(process.argv[fromFileIdx + 1]);
-  console.log(`Using snapshot from file (fetched ${snapshot.fetched_at}).`);
-} else {
-  snapshot = await fetchFromAhrefs();
-  mkdirSync(join(ROOT, "data"), { recursive: true });
-  writeFileSync(LATEST_FILE, JSON.stringify(snapshot, null, 2) + "\n");
-  console.log(`Fetched ${Object.keys(snapshot.rows).length} keywords from Ahrefs (${snapshot.range.from} to ${snapshot.range.to}).`);
+// ---- Prefill keyword pool for user-added clusters --------------------------
+// Pulls top keywords by US volume per category (data/pool-seeds.json) via the
+// matching-terms endpoint and writes a flat {keyword: volume} lookup that the
+// site checks when a visitor adds a custom cluster. Cost: 10 units per keyword.
+
+async function refreshPool() {
+  const key = process.env.AHREFS_API_KEY;
+  if (!key) {
+    console.error("AHREFS_API_KEY env var is required for pool refresh.");
+    process.exit(1);
+  }
+  const { categories, per_category_limit } = JSON.parse(
+    readFileSync(join(ROOT, "data", "pool-seeds.json"), "utf8")
+  );
+  const pool = {};
+  let fetched = 0;
+  for (const [category, seeds] of Object.entries(categories)) {
+    const params = new URLSearchParams({
+      country: "us",
+      keywords: seeds.join(","),
+      select: "keyword,volume",
+      order_by: "volume:desc",
+      limit: String(per_category_limit),
+      match_mode: "terms",
+      output: "json",
+    });
+    const res = await fetch(
+      `https://api.ahrefs.com/v3/keywords-explorer/matching-terms?${params}`,
+      { headers: { Authorization: `Bearer ${key}`, Accept: "application/json" } }
+    );
+    if (!res.ok) {
+      console.error(`Pool fetch failed for "${category}" (${res.status}): ${await res.text()}`);
+      process.exit(1);
+    }
+    const data = await res.json();
+    let added = 0;
+    for (const row of data.keywords ?? []) {
+      if (!row.keyword || row.volume == null || row.volume <= 0) continue;
+      const kw = row.keyword.toLowerCase().replace(/\s+/g, " ").trim();
+      pool[kw] = Math.max(pool[kw] ?? 0, row.volume);
+      added++;
+    }
+    fetched += added;
+    console.log(`  ${category}: ${added} keywords`);
+  }
+  const sorted = Object.fromEntries(Object.entries(pool).sort((a, b) => b[1] - a[1]));
+  writeFileSync(join(ROOT, "data", "volumes.json"), JSON.stringify(sorted) + "\n");
+  console.log(`Pool written: ${Object.keys(sorted).length} unique keywords (${fetched} fetched, ~${fetched * 10} units).`);
 }
-patchIndex(snapshot);
+
+const poolOnly = process.argv.includes("--pool-only");
+const withPool = process.argv.includes("--pool");
+const fromFileIdx = process.argv.indexOf("--from-file");
+
+if (poolOnly) {
+  await refreshPool();
+} else {
+  let snapshot;
+  if (fromFileIdx !== -1) {
+    snapshot = loadFromFile(process.argv[fromFileIdx + 1]);
+    console.log(`Using snapshot from file (fetched ${snapshot.fetched_at}).`);
+  } else {
+    snapshot = await fetchFromAhrefs();
+    mkdirSync(join(ROOT, "data"), { recursive: true });
+    writeFileSync(LATEST_FILE, JSON.stringify(snapshot, null, 2) + "\n");
+    console.log(`Fetched ${Object.keys(snapshot.rows).length} keywords from Ahrefs (${snapshot.range.from} to ${snapshot.range.to}).`);
+  }
+  patchIndex(snapshot);
+  if (withPool) await refreshPool();
+}

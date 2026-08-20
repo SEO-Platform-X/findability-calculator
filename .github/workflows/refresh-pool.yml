@@ -1,0 +1,34 @@
+name: Refresh keyword pool
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  pool:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch keyword pool from Ahrefs
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: node scripts/refresh-data.mjs --pool-only
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "ahrefs-refresh-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet; then
+            echo "Pool unchanged."
+          else
+            git add data/volumes.json
+            git commit -m "chore: refresh prefill keyword pool"
+            git push
+          fi

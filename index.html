@@ -140,6 +140,7 @@ react-dom/cjs/react-dom-client.production.js:
     var btn = document.getElementById("site-analyzer-btn");
     var status = document.getElementById("site-analyzer-status");
 
+    var retried = false;
     function run() {
       var domain = input.value.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
       if (!domain || domain.indexOf(".") === -1) { status.textContent = "Enter a domain like yourpractice.com"; return; }
@@ -150,11 +151,20 @@ react-dom/cjs/react-dom-client.production.js:
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) {
-            status.textContent = res.j && res.j.error === "rate limited"
-              ? "Too many analyses from this connection. Try again in an hour."
-              : "Could not analyze that domain. Check the spelling and try again.";
+            if (res.j && res.j.error === "rate limited") {
+              status.textContent = "Too many analyses from this connection. Try again in an hour.";
+            } else if (res.j && res.j.error === "invalid domain") {
+              status.textContent = "That does not look like a domain. Try the format yourpractice.com";
+            } else if (!retried) {
+              retried = true;
+              status.textContent = "Search data provider is busy, retrying\u2026";
+              setTimeout(run, 2500);
+            } else {
+              status.textContent = "The data provider is rate limiting right now. Give it a minute and hit Analyze again.";
+            }
             return;
           }
+          retried = false;
           var p = res.j;
           if (!p.ranking_keywords) {
             status.textContent = domain + " has no measurable US rankings yet, which itself is a findability signal. Explore the categories below.";

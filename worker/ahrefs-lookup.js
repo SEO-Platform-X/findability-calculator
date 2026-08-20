@@ -64,8 +64,8 @@ async function ahrefs(path, params, key) {
     },
   };
   let res = await fetch(url, opts);
-  if (res.status === 429 || res.status >= 500) {
-    await new Promise((r) => setTimeout(r, 1200));
+  for (let attempt = 0; (res.status === 429 || res.status === 403 || res.status >= 500) && attempt < 3; attempt++) {
+    await new Promise((r) => setTimeout(r, 1000 + attempt * 1200 + Math.random() * 600));
     res = await fetch(url, opts);
   }
   if (!res.ok) throw new Error(`ahrefs ${res.status}: ${(await res.text()).slice(0, 200)}`);

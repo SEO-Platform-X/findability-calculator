@@ -19,9 +19,12 @@ jobs:
             JSON=$(echo "$BODY" | head -c 700)
             echo "::notice::[$NAME] HTTP $CODE :: $JSON"
           }
-          probe "v4-ahrefs-free" "target=ahrefs.com&mode=subdomains&country=us&date=$D&select=keyword,volume,best_position&order_by=volume:desc&limit=3&output=json"
-          probe "v5-vancethompson" "target=vancethompsonvision.com&mode=subdomains&country=us&date=$D&select=keyword,volume&limit=3&output=json"
-          probe "v6-parkhurst-www" "target=www.parkhurstnuvision.com&mode=exact&country=us&date=$D&select=keyword,volume&limit=3&output=json"
+          probe "quiktox-direct" "target=quiktox.com&mode=subdomains&country=us&date=$D&select=keyword,volume&limit=3&output=json"
+          W="https://findability-lookup.localairegistry.workers.dev"
+          for DOM in quiktox.com upkeepbeauty.com; do
+            B=$(curl -s -w "\n%{http_code}" "$W/profile?domain=$DOM" -H "Origin: https://localai.life")
+            echo "::notice::[live-profile $DOM] HTTP $(echo "$B" | tail -1) :: $(echo "$B" | head -1 | head -c 400)"
+          done
 
       - name: Cloudflare DNS and token introspection
         env:

@@ -1,0 +1,31 @@
+name: Diagnostics
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ahrefs organic-keywords variants
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: |
+          D=$(date -u -d "4 days ago" +%Y-%m-%d)
+          probe () {
+            NAME="$1"; shift
+            BODY=$(curl -s -w "\n%{http_code}" -H "Authorization: Bearer $AHREFS_API_KEY" "https://api.ahrefs.com/v3/site-explorer/organic-keywords?$1")
+            CODE=$(echo "$BODY" | tail -1)
+            JSON=$(echo "$BODY" | head -c 700)
+            echo "::notice::[$NAME] HTTP $CODE :: $JSON"
+          }
+          probe "v1-current-shape" "target=parkhurstnuvision.com&mode=subdomains&country=us&date=$D&select=keyword,volume,best_position&order_by=volume:desc&limit=5&output=json"
+          probe "v2-no-position" "target=parkhurstnuvision.com&mode=subdomains&country=us&date=$D&select=keyword,volume&limit=5&output=json"
+          probe "v3-mode-domain" "target=parkhurstnuvision.com&mode=domain&country=us&date=$D&select=keyword,volume&limit=5&output=json"
+
+      - name: Cloudflare zone check for localai.life
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          Z=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=localai.life")
+          echo "::notice::[zone] $(echo "$Z" | head -c 700)"

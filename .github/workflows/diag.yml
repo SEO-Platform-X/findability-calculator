@@ -23,9 +23,14 @@ jobs:
           probe "v5-vancethompson" "target=vancethompsonvision.com&mode=subdomains&country=us&date=$D&select=keyword,volume&limit=3&output=json"
           probe "v6-parkhurst-www" "target=www.parkhurstnuvision.com&mode=exact&country=us&date=$D&select=keyword,volume&limit=3&output=json"
 
-      - name: Cloudflare zone check for localai.life
+      - name: Cloudflare DNS and token introspection
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          Z=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=localai.life")
-          echo "::notice::[zone] $(echo "$Z" | head -c 700)"
+          CF="https://api.cloudflare.com/client/v4"
+          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          ZID=$(curl -s -H "$AUTH" "$CF/zones?name=localai.life" | python3 -c "import json,sys; print(json.load(sys.stdin)['result'][0]['id'])")
+          echo "::notice::[dns-records] $(curl -s -H "$AUTH" "$CF/zones/$ZID/dns_records" | python3 -c "import json,sys; d=json.load(sys.stdin); print(json.dumps({'success': d.get('success'), 'errors': d.get('errors'), 'records': [{'type':r['type'],'name':r['name'],'content':r['content'][:60]} for r in (d.get('result') or [])]}))" | head -c 700)"
+          echo "::notice::[token-verify] $(curl -s -H "$AUTH" "$CF/user/tokens/verify" | head -c 300)"
+          echo "::notice::[perm-check-write] $(curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" "$CF/zones/$ZID/dns_records" -d '{"type":"TXT","name":"_claude-perm-check.localai.life","content":"probe"}' | head -c 300)"

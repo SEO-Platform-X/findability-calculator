@@ -105,12 +105,17 @@ jobs:
 
       - name: Smoke test
         run: |
-          sleep 5
-          STATUS=$(curl -s -o /tmp/resp.json -w "%{http_code}" "$WORKER_URL/?kw=lip%20flip%20near%20me" -H "Origin: https://seo-platform-x.github.io")
+          # new workers.dev subdomains can take a few minutes to provision SSL
+          for i in $(seq 1 20); do
+            STATUS=$(curl -s -o /tmp/resp.json -w "%{http_code}" "$WORKER_URL/?kw=lip%20flip%20near%20me" -H "Origin: https://seo-platform-x.github.io" || echo "curl-err")
+            [ "$STATUS" = "200" ] && break
+            echo "attempt $i: $STATUS, waiting 30s for SSL provisioning"
+            sleep 30
+          done
           echo "keyword lookup: HTTP $STATUS"
-          cat /tmp/resp.json
+          echo "::notice::keyword lookup [$STATUS]: $(cat /tmp/resp.json 2>/dev/null | head -c 300)"
           [ "$STATUS" = "200" ]
           PSTATUS=$(curl -s -o /tmp/profile.json -w "%{http_code}" "$WORKER_URL/profile?domain=parkhurstnuvision.com" -H "Origin: https://seo-platform-x.github.io")
           echo "profile: HTTP $PSTATUS"
-          cat /tmp/profile.json
+          echo "::notice::profile [$PSTATUS]: $(cat /tmp/profile.json 2>/dev/null | head -c 500)"
           [ "$PSTATUS" = "200" ]

@@ -26,10 +26,9 @@ jobs:
           ZONE_PG=$(python3 -c "import json; d=json.load(open('/tmp/pg.json'))['result']; print(next((g['id'] for g in d if g['name']=='Zone Read'), ''))")
           if [ -z "$ROUTES_PG" ]; then echo "::error::Workers Routes Write group not found"; exit 1; fi
 
-          GROUPS="[{\"id\":\"$ROUTES_PG\"}]"
-          if [ -n "$ZONE_PG" ]; then GROUPS="[{\"id\":\"$ROUTES_PG\"},{\"id\":\"$ZONE_PG\"}]"; fi
-          BODY="{\"name\":\"calculator-route-helper\",\"policies\":[{\"effect\":\"allow\",\"resources\":{\"com.cloudflare.api.account.zone.$ZID\":\"*\"},\"permission_groups\":$GROUPS}]}"
-          curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens" -d "$BODY" > /tmp/mint.json
+          export ROUTES_PG ZONE_PG ZID
+          python3 -c "import json,os; groups=[{'id':os.environ['ROUTES_PG']}]+([{'id':os.environ['ZONE_PG']}] if os.environ.get('ZONE_PG') else []); body={'name':'calculator-route-helper','policies':[{'effect':'allow','resources':{'com.cloudflare.api.account.zone.'+os.environ['ZID']:'*'},'permission_groups':groups}]}; open('/tmp/body.json','w').write(json.dumps(body))"
+          curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens" -d @/tmp/body.json > /tmp/mint.json
           MOK=$(python3 -c "import json; print(json.load(open('/tmp/mint.json')).get('success'))")
           if [ "$MOK" != "True" ]; then
             echo "::error::Token mint failed: $(head -c 300 /tmp/mint.json)"

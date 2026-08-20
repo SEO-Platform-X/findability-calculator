@@ -76,7 +76,7 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [addText, setAddText] = useState("");
   const [suggest, setSuggest] = useState([]);
-  const retried = useRef(false);
+  const retried = useRef(0);
   const debounceRef = useRef(null);
 
   useEffect(() => {
@@ -191,14 +191,14 @@ function App() {
     if (!res.ok) {
       if (j && j.error === "rate limited") setStatus("Too many analyses from this connection. Try again in an hour.");
       else if (j && j.error === "invalid domain") setStatus("That does not look like a domain. Try yourpractice.com");
-      else if (!retried.current) {
-        retried.current = true;
-        setStatus("Search data provider is busy, retrying\u2026");
-        setTimeout(analyze, 2500);
-      } else setStatus("The data provider is rate limiting right now. Give it a minute and hit Analyze again.");
+      else if (retried.current < 2) {
+        retried.current++;
+        setStatus("Search data provider is busy, retrying (" + retried.current + "/2)\u2026");
+        setTimeout(analyze, 3000 * retried.current);
+      } else setStatus("The data provider keeps blocking right now. Wait a minute, then hit Analyze again; it usually clears fast.");
       return;
     }
-    retried.current = false;
+    retried.current = 0;
     if (!j.ranking_keywords) {
       setStatus(domain + " has no measurable US rankings yet, which itself is a findability signal.");
       return;

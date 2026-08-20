@@ -14,7 +14,7 @@ const DOMAIN_RE = /^(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,
 const KW_TTL = 60 * 60 * 24 * 30;
 const PROFILE_TTL = 60 * 60 * 24 * 7;
 const KW_LIMIT_PER_HOUR = 20;
-const PROFILE_LIMIT_PER_HOUR = 5;
+const PROFILE_LIMIT_PER_HOUR = 25;
 
 const CATEGORIES = {
   plastic_surgery: ["plastic surgeon", "plastic surgery", "rhinoplasty", "breast augmentation", "tummy tuck", "liposuction", "facelift", "bbl", "mommy makeover", "blepharoplasty", "eyelid", "nose job", "gynecomastia", "body contouring", "fat transfer", "arm lift", "breast reduction"],
@@ -78,8 +78,8 @@ async function ahrefs(path, params, key) {
     },
   };
   let res = await fetch(url, opts);
-  for (let attempt = 0; (res.status === 429 || res.status === 403 || res.status >= 500) && attempt < 3; attempt++) {
-    await new Promise((r) => setTimeout(r, 1000 + attempt * 1200 + Math.random() * 600));
+  for (let attempt = 0; (res.status === 429 || res.status === 403 || res.status >= 500) && attempt < 6; attempt++) {
+    await new Promise((r) => setTimeout(r, 800 + attempt * 1500 + Math.random() * 900));
     res = await fetch(url, opts);
   }
   if (!res.ok) throw new Error(`ahrefs ${res.status}: ${(await res.text()).slice(0, 200)}`);
@@ -118,7 +118,7 @@ async function handleProfile(url, cache, ip, env, cors) {
     .replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
   if (!DOMAIN_RE.test(domain)) return json({ error: "invalid domain" }, 400, cors);
 
-  const cacheKey = new Request("https://cache.internal/profile-v2/" + encodeURIComponent(domain));
+  const cacheKey = new Request("https://cache.internal/profile-v3/" + encodeURIComponent(domain));
   const hit = await cache.match(cacheKey);
   if (hit) return json({ ...(await hit.json()), cached: true }, 200, cors);
 
@@ -146,8 +146,9 @@ async function handleProfile(url, cache, ip, env, cors) {
   const city = inferCity(rows);
   const seen = new Set();
   const uniq = rows.filter((r) => !seen.has(r.keyword) && seen.add(r.keyword));
-  let top = uniq.filter((r) => r.volume >= 50).slice(0, 8);
-  if (top.length < 3) top = uniq.slice(0, 5);
+  const byRelevance = (a, b) => (a.position ?? 99) - (b.position ?? 99) || b.volume - a.volume;
+  let top = uniq.filter((r) => r.volume >= 50).sort(byRelevance).slice(0, 8);
+  if (top.length < 3) top = [...uniq].sort(byRelevance).slice(0, 5);
 
   const body = {
     domain, category,

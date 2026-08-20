@@ -87,6 +87,10 @@ jobs:
         run: |
           sleep 5
           STATUS=$(curl -s -o /tmp/resp.json -w "%{http_code}" "$WORKER_URL/?kw=lip%20flip%20near%20me" -H "Origin: https://seo-platform-x.github.io")
-          echo "HTTP $STATUS"
+          echo "keyword lookup: HTTP $STATUS"
           cat /tmp/resp.json
           [ "$STATUS" = "200" ]
+          PSTATUS=$(curl -s -o /tmp/profile.json -w "%{http_code}" "$WORKER_URL/profile?domain=parkhurstnuvision.com" -H "Origin: https://seo-platform-x.github.io")
+          echo "profile: HTTP $PSTATUS"
+          cat /tmp/profile.json
+          [ "$PSTATUS" = "200" ]

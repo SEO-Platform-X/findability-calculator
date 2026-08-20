@@ -27,6 +27,7 @@ const CATEGORIES = {
   veterinary: ["vet ", "veterinar", "animal hospital", "pet ", "spay", "neuter"],
   wellness: ["chiropract", "physical therapy", "massage", "acupuncture", "cryotherapy"],
   home_services: ["hvac", "plumb", "electrician", "roof", "landscap", "pest control", "locksmith", "garage door", "house cleaning", "handyman"],
+  construction: ["construction", "contractor", "remodel", "renovation", "builder", "custom home", "home addition", "adu", "deck", "concrete", "kitchen remodel", "bathroom remodel", "flooring install"],
   restaurants: ["restaurant", "pizza", "sushi", "taco", "brunch", "steakhouse", "cafe", "coffee shop", "bakery", "catering", "takeout", "happy hour", "bbq", "ramen", "burger", "menu"],
   real_estate: ["realtor", "real estate", "homes for sale", "houses for sale", "apartments for rent", "condos", "property management", "new construction homes"],
   auto: ["auto repair", "mechanic", "oil change", "tire shop", "body shop", "car wash", "auto detailing", "brake repair", "transmission", "smog check", "windshield"],
@@ -47,6 +48,7 @@ const VERTICAL_LABELS = {
   veterinary: "Veterinarian",
   beauty: "Beauty & Salon",
   home_services: "Home Services",
+  construction: "Construction & Remodel",
 };
 
 const CITIES = ["new york","los angeles","chicago","houston","phoenix","philadelphia","san antonio","san diego","dallas","austin","jacksonville","fort worth","columbus","charlotte","san francisco","indianapolis","seattle","denver","washington","boston","el paso","nashville","detroit","oklahoma city","portland","las vegas","memphis","louisville","baltimore","milwaukee","albuquerque","tucson","fresno","sacramento","mesa","kansas city","atlanta","omaha","colorado springs","raleigh","miami","long beach","virginia beach","oakland","minneapolis","tulsa","tampa","arlington","new orleans","wichita","bakersfield","cleveland","aurora","anaheim","honolulu","santa ana","riverside","corpus christi","lexington","san jose","stockton","st louis","saint louis","pittsburgh","cincinnati","anchorage","henderson","greensboro","plano","newark","toledo","lincoln","orlando","chula vista","jersey city","chandler","fort wayne","buffalo","durham","st petersburg","irvine","laredo","lubbock","madison","gilbert","norfolk","reno","winston salem","glendale","hialeah","garland","scottsdale","irving","chesapeake","north las vegas","fremont","baton rouge","richmond","boise","san bernardino","spokane","birmingham","modesto","des moines","rochester","tacoma","fontana","oxnard","moreno valley","fayetteville","huntington beach","yonkers","glendale az","aurora il","montgomery","amarillo","little rock","akron","columbus ga","augusta","grand rapids","shreveport","salt lake city","huntsville","mobile","tallahassee","grand prairie","overland park","knoxville","worcester","brownsville","newport news","santa clarita","port st lucie","providence","fort lauderdale","chattanooga","tempe","oceanside","garden grove","rancho cucamonga","cape coral","santa rosa","vancouver wa","sioux falls","peoria","ontario ca","jackson","elk grove","springfield","pembroke pines","salem","corona","eugene","mckinney","fort collins","lancaster","cary","palmdale","hayward","salinas","frisco","pasadena","macon","alexandria","pomona","lakewood","sunnyvale","escondido","kansas city ks","hollywood fl","clarksville","torrance","rockford","joliet","paterson","bridgeport","naperville","savannah","mesquite","syracuse","dayton","pasadena tx","orange","fullerton","killeen","hampton","mcallen","warren","west valley city","columbia","olathe","sterling heights","new haven","miramar","waco","thousand oaks","cedar rapids","charleston","visalia","topeka","elizabeth","gainesville","thornton","roseville","carrollton","coral springs","stamford","simi valley","concord","hartford","kent","lafayette","midland","surprise","denton","victorville","evansville","santa clara","abilene","athens","vallejo","allentown","norman","beaumont","independence","murfreesboro","ann arbor","costa mesa","tuscaloosa","el monte","newport beach","laguna beach","mission viejo","huntington","boca raton","sarasota","naples","clearwater","the woodlands","frisco tx","bellevue","redmond","kirkland","walnut creek","palo alto","berkeley","santa monica","beverly hills","calabasas","encino","sherman oaks","tustin","fullerton ca","brea","yorba linda","dana point","san clemente","carlsbad","encinitas","la jolla","del mar","temecula","murrieta"];
@@ -143,9 +145,9 @@ async function handleProfile(url, cache, ip, env, cors) {
   const { category, confidence } = inferCategory(rows);
   const city = inferCity(rows);
   const seen = new Set();
-  const top = rows
-    .filter((r) => r.volume >= 50 && !seen.has(r.keyword) && seen.add(r.keyword))
-    .slice(0, 8);
+  const uniq = rows.filter((r) => !seen.has(r.keyword) && seen.add(r.keyword));
+  let top = uniq.filter((r) => r.volume >= 50).slice(0, 8);
+  if (top.length < 3) top = uniq.slice(0, 5);
 
   const body = {
     domain, category,

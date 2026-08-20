@@ -8,7 +8,7 @@
 // The Ahrefs API key lives only here (wrangler secret). CORS locked to the
 // GitHub Pages origin. Deploy: npx wrangler deploy && npx wrangler secret put AHREFS_API_KEY
 
-const ALLOWED_ORIGIN = "https://seo-platform-x.github.io";
+const ALLOWED_ORIGINS = ["https://seo-platform-x.github.io", "https://localai.life", "https://www.localai.life"];
 const KEYWORD_RE = /^[a-z0-9][a-z0-9 '\-]{1,59}$/;
 const DOMAIN_RE = /^(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$/;
 const KW_TTL = 60 * 60 * 24 * 30;
@@ -164,8 +164,9 @@ async function handleKeyword(url, cache, ip, env, cors) {
 
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get("Origin") || "";
     const cors = {
-      "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+      "Access-Control-Allow-Origin": ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
       "Access-Control-Allow-Methods": "GET, OPTIONS",
       "Vary": "Origin",
     };

@@ -74,6 +74,31 @@ jobs:
           fi
           printf '%s' "$AHREFS_API_KEY" | npx --yes wrangler@4 secret put AHREFS_API_KEY
 
+      - name: Wire localai.life DNS and deploy calculator proxy
+        if: ${{ inputs.worker_url == '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          ZID=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"             "https://api.cloudflare.com/client/v4/zones?name=localai.life"             | python3 -c "import json,sys; r=json.load(sys.stdin)['result']; print(r[0]['id'] if r else '')")
+          if [ -z "$ZID" ]; then echo "::warning::localai.life zone not found, skipping domain wiring"; exit 0; fi
+          for NAME in localai.life www.localai.life; do
+            EXISTS=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"               "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records?name=$NAME"               | python3 -c "import json,sys; print(len(json.load(sys.stdin)['result']))")
+            if [ "$EXISTS" = "0" ]; then
+              R=$(curl -s -X POST -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json"                 "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records"                 -d "{"type":"AAAA","name":"$NAME","content":"100::","proxied":true}")
+              echo "::notice::DNS $NAME: $(echo "$R" | python3 -c "import json,sys; print(json.load(sys.stdin)['success'])")"
+            else
+              echo "DNS record for $NAME already exists"
+            fi
+          done
+          cd worker/proxy
+          set -o pipefail
+          if ! npx --yes wrangler@4 deploy 2>&1 | tee proxy.log; then
+            grep -iE 'error|fail|auth|denied' proxy.log | head -6 | while read -r l; do echo "::error::proxy: $l"; done
+            exit 1
+          fi
+          echo "::notice::proxy deployed with routes localai.life/* and www.localai.life/*"
+
       - name: Use provided URL instead
         if: ${{ inputs.worker_url != '' }}
         run: echo "WORKER_URL=${{ inputs.worker_url }}" >> "$GITHUB_ENV"

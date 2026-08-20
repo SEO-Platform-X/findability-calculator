@@ -23,12 +23,8 @@ const key = process.env.AHREFS_API_KEY;
 if (!key) { console.error("AHREFS_API_KEY required"); process.exit(1); }
 
 const { verticals } = JSON.parse(readFileSync(join(ROOT, "data", "new-verticals.json"), "utf8"));
-let html = readFileSync(INDEX, "utf8");
-
-const pending = Object.entries(verticals).filter(([label]) => {
-  const marker = label.includes(" ") || label.includes("&") ? `"${label}":[{name:` : `${label}:[{name:`;
-  return !html.includes(marker);
-});
+const currentV = JSON.parse(readFileSync(join(ROOT, "data", "verticals.json"), "utf8"));
+const pending = Object.entries(verticals).filter(([label]) => !currentV[label]);
 if (!pending.length) { console.log("All verticals already present. Nothing to do."); process.exit(0); }
 
 const allKws = [...new Set(pending.flatMap(([, v]) => v.clusters.map((c) => c.kw)))];
@@ -58,29 +54,21 @@ for (let i = 0; i < allKws.length; i += 50) {
 }
 console.log(`Got data for ${Object.keys(rows).length}/${allKws.length} keywords.`);
 
-const esc = (s) => s.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-let snippet = "";
+const vPath = join(ROOT, "data", "verticals.json");
+const existing = JSON.parse(readFileSync(vPath, "utf8"));
 const added = [];
 for (const [label, v] of pending) {
+  if (existing[label]) continue;
   const clusters = v.clusters
     .filter((c) => rows[c.kw])
-    .map((c) => {
-      const d = rows[c.kw];
-      return `{name:"${esc(c.name)}",examples:[${c.examples.map((e) => `"${esc(e)}"`).join(",")}],kw:"${esc(c.kw)}",volume:${d.volume},value:${v.value},history:[${d.history.join(",")}]}`;
-    });
+    .map((c) => ({ name: c.name, examples: c.examples, kw: c.kw, volume: rows[c.kw].volume, value: v.value, history: rows[c.kw].history }));
   if (clusters.length < 6) { console.warn(`Skipping ${label}: only ${clusters.length} clusters with data`); continue; }
-  const keyStr = /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(label) ? label : `"${label}"`;
-  snippet += `,${keyStr}:[${clusters.join(",")}]`;
+  existing[label] = clusters;
   added.push(`${label} (${clusters.length} clusters)`);
 }
-if (!snippet) { console.error("No verticals could be built."); process.exit(1); }
+if (!added.length) { console.log("Nothing new to add."); process.exit(0); }
+writeFileSync(vPath, JSON.stringify(existing, null, 1) + "\n");
 
-const marker = "}]},jm=Object.keys(Xf)";
-if (!html.includes(marker)) { console.error("Splice marker not found in bundle."); process.exit(1); }
-html = html.replace(marker, `}]${snippet}},jm=Object.keys(Xf)`);
-writeFileSync(INDEX, html);
-
-// register keywords for the monthly refresh
 const kwPath = join(ROOT, "data", "keywords.json");
 const kwCfg = JSON.parse(readFileSync(kwPath, "utf8"));
 kwCfg.keywords = [...new Set([...kwCfg.keywords, ...allKws.filter((k) => rows[k])])].sort();

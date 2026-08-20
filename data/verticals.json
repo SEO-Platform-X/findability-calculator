@@ -1,0 +1,3855 @@
+{
+ "Plastic Surgeon": [
+  {
+   "name": "Best plastic surgeon near me",
+   "examples": [
+    "who is the best plastic surgeon near me",
+    "top rated plastic surgeons in my area",
+    "how do I choose a plastic surgeon"
+   ],
+   "kw": "plastic surgeon near me",
+   "volume": 12000,
+   "value": 8500,
+   "history": [
+    11731,
+    10912,
+    10783,
+    10639,
+    9846,
+    12032,
+    12417,
+    12693,
+    12006,
+    12118,
+    12732,
+    13152
+   ]
+  },
+  {
+   "name": "Rhinoplasty research",
+   "examples": [
+    "how much does a nose job cost",
+    "what is rhinoplasty recovery like",
+    "am I a good candidate for rhinoplasty"
+   ],
+   "kw": "rhinoplasty cost",
+   "volume": 9500,
+   "value": 7800,
+   "history": [
+    9529,
+    8479,
+    8842,
+    9439,
+    9094,
+    10675,
+    10115,
+    9684,
+    9679,
+    9293,
+    9488,
+    10011
+   ]
+  },
+  {
+   "name": "Breast augmentation",
+   "examples": [
+    "breast augmentation cost near me",
+    "silicone vs saline implants",
+    "what size implants should I get"
+   ],
+   "kw": "breast augmentation",
+   "volume": 45000,
+   "value": 9500,
+   "history": [
+    43672,
+    42614,
+    40168,
+    40403,
+    41185,
+    50303,
+    43248,
+    45737,
+    46771,
+    46520,
+    50539,
+    47071
+   ]
+  },
+  {
+   "name": "Mommy makeover",
+   "examples": [
+    "what does a mommy makeover include",
+    "mommy makeover cost near me",
+    "how long is mommy makeover recovery"
+   ],
+   "kw": "mommy makeover",
+   "volume": 37000,
+   "value": 14000,
+   "history": [
+    37299,
+    34483,
+    33011,
+    32167,
+    31471,
+    38158,
+    38049,
+    37003,
+    37577,
+    38755,
+    45714,
+    39067
+   ]
+  },
+  {
+   "name": "Facelift & neck lift",
+   "examples": [
+    "facelift cost near me",
+    "am I too young for a facelift",
+    "facelift vs fillers"
+   ],
+   "kw": "facelift",
+   "volume": 26000,
+   "value": 12500,
+   "history": [
+    25077,
+    25078,
+    25338,
+    24762,
+    24834,
+    26600,
+    28041,
+    25885,
+    26248,
+    26554,
+    26072,
+    27472
+   ]
+  },
+  {
+   "name": "Body contouring & lipo",
+   "examples": [
+    "liposuction vs coolsculpting",
+    "lipo cost near me",
+    "how much fat can lipo remove"
+   ],
+   "kw": "liposuction",
+   "volume": 83000,
+   "value": 6500,
+   "history": [
+    83296,
+    77049,
+    71116,
+    74419,
+    73214,
+    72403,
+    84380,
+    87749,
+    88907,
+    93034,
+    93084,
+    91909
+   ]
+  },
+  {
+   "name": "BBL safety & results",
+   "examples": [
+    "is a BBL safe",
+    "best BBL surgeon near me",
+    "how long do BBL results last"
+   ],
+   "kw": "bbl surgery",
+   "volume": 42000,
+   "value": 9800,
+   "history": [
+    49613,
+    36675,
+    38530,
+    37278,
+    43462,
+    43513,
+    42161,
+    42956,
+    37554,
+    45144,
+    45240,
+    45195
+   ]
+  },
+  {
+   "name": "Tummy tuck",
+   "examples": [
+    "tummy tuck cost and recovery",
+    "tummy tuck vs lipo",
+    "will insurance cover a tummy tuck"
+   ],
+   "kw": "tummy tuck",
+   "volume": 61000,
+   "value": 10500,
+   "history": [
+    58703,
+    55358,
+    51056,
+    52394,
+    56038,
+    64827,
+    60841,
+    67005,
+    64187,
+    65240,
+    67824,
+    67958
+   ]
+  },
+  {
+   "name": "Eyelid surgery",
+   "examples": [
+    "blepharoplasty before and after",
+    "how much is eyelid surgery",
+    "does insurance cover blepharoplasty"
+   ],
+   "kw": "blepharoplasty",
+   "volume": 137000,
+   "value": 5800,
+   "history": [
+    134964,
+    112965,
+    152295,
+    156574,
+    132146,
+    133557,
+    128096,
+    145387,
+    138505,
+    135678,
+    137786,
+    141139
+   ]
+  },
+  {
+   "name": "Breast lift & reduction",
+   "examples": [
+    "is breast reduction covered by insurance",
+    "breast lift vs reduction",
+    "breast reduction recovery time"
+   ],
+   "kw": "breast reduction",
+   "volume": 23000,
+   "value": 9200,
+   "history": [
+    22888,
+    20823,
+    20577,
+    20008,
+    20218,
+    23002,
+    22759,
+    23549,
+    23662,
+    23732,
+    25502,
+    25049
+   ]
+  },
+  {
+   "name": "Gynecomastia surgery",
+   "examples": [
+    "male breast reduction near me",
+    "gynecomastia surgery cost",
+    "does gyno surgery leave scars"
+   ],
+   "kw": "gynecomastia surgery",
+   "volume": 11000,
+   "value": 7500,
+   "history": [
+    12005,
+    10236,
+    9727,
+    9054,
+    8892,
+    10633,
+    10523,
+    11049,
+    11659,
+    12225,
+    13230,
+    13092
+   ]
+  },
+  {
+   "name": "Revision rhinoplasty",
+   "examples": [
+    "who fixes bad nose jobs",
+    "revision rhinoplasty specialist near me",
+    "how long to wait for a revision"
+   ],
+   "kw": "revision rhinoplasty",
+   "volume": 1900,
+   "value": 12000,
+   "history": [
+    1895,
+    1815,
+    1841,
+    1861,
+    1877,
+    1971,
+    1823,
+    1856,
+    1864,
+    1793,
+    1879,
+    1839
+   ]
+  },
+  {
+   "name": "Arm & thigh lift",
+   "examples": [
+    "arm lift after weight loss",
+    "thigh lift cost",
+    "loose skin surgery options"
+   ],
+   "kw": "arm lift",
+   "volume": 3400,
+   "value": 8800,
+   "history": [
+    3421,
+    3368,
+    3285,
+    3100,
+    2995,
+    3359,
+    3499,
+    3608,
+    3674,
+    3686,
+    3735,
+    3630
+   ]
+  },
+  {
+   "name": "Fat transfer",
+   "examples": [
+    "fat transfer to face cost",
+    "how long does fat transfer last",
+    "fat transfer vs fillers"
+   ],
+   "kw": "fat transfer",
+   "volume": 3200,
+   "value": 7200,
+   "history": [
+    3122,
+    2968,
+    2960,
+    2923,
+    2851,
+    3596,
+    3445,
+    3388,
+    3443,
+    3380,
+    3371,
+    3425
+   ]
+  }
+ ],
+ "Med Spa": [
+  {
+   "name": "Best med spa near me",
+   "examples": [
+    "best med spa near me",
+    "med spa with good reviews nearby",
+    "what should I look for in a med spa"
+   ],
+   "kw": "med spa near me",
+   "volume": 30000,
+   "value": 450,
+   "history": [
+    29014,
+    25364,
+    26446,
+    24594,
+    37491,
+    29852,
+    32369,
+    32433,
+    31760,
+    31361,
+    31051,
+    32771
+   ]
+  },
+  {
+   "name": "Botox cost & units",
+   "examples": [
+    "how many units of botox for forehead",
+    "botox cost near me",
+    "how long does botox last"
+   ],
+   "kw": "botox near me",
+   "volume": 88000,
+   "value": 520,
+   "history": [
+    84690,
+    76583,
+    84029,
+    76517,
+    81626,
+    87116,
+    104592,
+    94800,
+    90587,
+    90005,
+    91195,
+    88437
+   ]
+  },
+  {
+   "name": "Lip & cheek filler",
+   "examples": [
+    "how long does lip filler last",
+    "lip filler cost near me",
+    "natural looking lip filler"
+   ],
+   "kw": "lip filler",
+   "volume": 81000,
+   "value": 780,
+   "history": [
+    74882,
+    70675,
+    70994,
+    72771,
+    77608,
+    81874,
+    89142,
+    86199,
+    80396,
+    82188,
+    85356,
+    101213
+   ]
+  },
+  {
+   "name": "Laser hair removal",
+   "examples": [
+    "laser hair removal cost",
+    "does laser hair removal hurt",
+    "how many laser sessions do I need"
+   ],
+   "kw": "laser hair removal",
+   "volume": 206000,
+   "value": 950,
+   "history": [
+    202152,
+    191089,
+    178253,
+    196830,
+    211571,
+    226877,
+    194785,
+    215989,
+    207404,
+    207358,
+    224018,
+    212439
+   ]
+  },
+  {
+   "name": "RF microneedling",
+   "examples": [
+    "morpheus8 results",
+    "morpheus8 vs microneedling",
+    "rf microneedling cost near me"
+   ],
+   "kw": "morpheus8",
+   "volume": 53000,
+   "value": 1900,
+   "history": [
+    53116,
+    52083,
+    52009,
+    51531,
+    49972,
+    56212,
+    60144,
+    59077,
+    55161,
+    53132,
+    51001,
+    48172
+   ]
+  },
+  {
+   "name": "GLP-1 weight loss",
+   "examples": [
+    "semaglutide near me",
+    "med spa weight loss program",
+    "tirzepatide vs semaglutide"
+   ],
+   "kw": "semaglutide near me",
+   "volume": 6600,
+   "value": 1400,
+   "history": [
+    7671,
+    5625,
+    5741,
+    5815,
+    5618,
+    5960,
+    6403,
+    6532,
+    8306,
+    6970,
+    8538,
+    6157
+   ]
+  },
+  {
+   "name": "Hydrafacial",
+   "examples": [
+    "hydrafacial near me",
+    "what does a hydrafacial do",
+    "hydrafacial before an event"
+   ],
+   "kw": "hydrafacial",
+   "volume": 75000,
+   "value": 220,
+   "history": [
+    75233,
+    66959,
+    64901,
+    70520,
+    69466,
+    72365,
+    74798,
+    82415,
+    82391,
+    81275,
+    80086,
+    76053
+   ]
+  },
+  {
+   "name": "Chemical peels",
+   "examples": [
+    "best chemical peel for melasma",
+    "chemical peel cost",
+    "how often should I get a peel"
+   ],
+   "kw": "chemical peel",
+   "volume": 52000,
+   "value": 350,
+   "history": [
+    45710,
+    47523,
+    50129,
+    53084,
+    52275,
+    59521,
+    58684,
+    60533,
+    54669,
+    52861,
+    48215,
+    46119
+   ]
+  },
+  {
+   "name": "IV therapy & vitamins",
+   "examples": [
+    "IV drip therapy near me",
+    "what is in a myers cocktail",
+    "IV therapy for energy"
+   ],
+   "kw": "iv therapy",
+   "volume": 34000,
+   "value": 280,
+   "history": [
+    35598,
+    32018,
+    31246,
+    29760,
+    30001,
+    34574,
+    35726,
+    34814,
+    35573,
+    34194,
+    35458,
+    35109
+   ]
+  },
+  {
+   "name": "CoolSculpting",
+   "examples": [
+    "does coolsculpting work",
+    "coolsculpting cost near me",
+    "coolsculpting vs lipo"
+   ],
+   "kw": "coolsculpting",
+   "volume": 26000,
+   "value": 2400,
+   "history": [
+    26997,
+    24748,
+    16110,
+    13694,
+    11640,
+    27028,
+    33867,
+    33502,
+    32695,
+    31109,
+    31486,
+    34596
+   ]
+  },
+  {
+   "name": "Emsculpt & body toning",
+   "examples": [
+    "emsculpt neo results",
+    "emsculpt cost near me",
+    "does emsculpt build muscle"
+   ],
+   "kw": "emsculpt",
+   "volume": 36000,
+   "value": 3000,
+   "history": [
+    39162,
+    35190,
+    35097,
+    31052,
+    28680,
+    32946,
+    35078,
+    36312,
+    35406,
+    37506,
+    41293,
+    50009
+   ]
+  },
+  {
+   "name": "PDO thread lift",
+   "examples": [
+    "thread lift vs facelift",
+    "how long does a thread lift last",
+    "pdo threads cost"
+   ],
+   "kw": "thread lift",
+   "volume": 9500,
+   "value": 2200,
+   "history": [
+    8796,
+    8540,
+    8479,
+    8606,
+    8511,
+    10097,
+    10286,
+    10460,
+    10133,
+    10184,
+    9735,
+    10039
+   ]
+  },
+  {
+   "name": "Hormone therapy",
+   "examples": [
+    "hormone replacement therapy near me",
+    "signs I need HRT",
+    "bioidentical hormones cost"
+   ],
+   "kw": "hormone replacement therapy",
+   "volume": 57000,
+   "value": 1800,
+   "history": [
+    55221,
+    51495,
+    49082,
+    67317,
+    51165,
+    59925,
+    54602,
+    56200,
+    60633,
+    57438,
+    58798,
+    60976
+   ]
+  },
+  {
+   "name": "PRP facial",
+   "examples": [
+    "vampire facial benefits",
+    "prp facial cost",
+    "prp vs microneedling"
+   ],
+   "kw": "prp facial",
+   "volume": 5800,
+   "value": 900,
+   "history": [
+    5306,
+    5438,
+    5720,
+    5557,
+    5015,
+    5963,
+    6495,
+    6093,
+    5573,
+    5905,
+    6144,
+    5910
+   ]
+  }
+ ],
+ "LASIK & Eye Care": [
+  {
+   "name": "LASIK research",
+   "examples": [
+    "is lasik worth it",
+    "lasik risks and side effects",
+    "lasik at 45 years old"
+   ],
+   "kw": "lasik eye surgery",
+   "volume": 58000,
+   "value": 4500,
+   "history": [
+    55977,
+    53747,
+    57529,
+    55460,
+    56256,
+    62566,
+    58446,
+    59360,
+    58685,
+    56555,
+    58489,
+    58895
+   ]
+  },
+  {
+   "name": "LASIK cost & financing",
+   "examples": [
+    "how much is LASIK",
+    "lasik cost per eye near me",
+    "lasik financing options"
+   ],
+   "kw": "lasik cost",
+   "volume": 7600,
+   "value": 4500,
+   "history": [
+    7278,
+    6838,
+    7423,
+    7617,
+    7172,
+    8547,
+    8283,
+    7747,
+    7554,
+    7222,
+    7617,
+    7624
+   ]
+  },
+  {
+   "name": "SMILE eye surgery",
+   "examples": [
+    "SMILE vs LASIK which is better",
+    "smile eye surgery cost",
+    "smile surgery recovery"
+   ],
+   "kw": "smile eye surgery",
+   "volume": 4800,
+   "value": 4800,
+   "history": [
+    4834,
+    4443,
+    4673,
+    4706,
+    4976,
+    4698,
+    5429,
+    4793,
+    4479,
+    4808,
+    5232,
+    5054
+   ]
+  },
+  {
+   "name": "Cataract surgery options",
+   "examples": [
+    "premium lens vs standard cataract",
+    "best cataract surgeon near me",
+    "cataract surgery recovery"
+   ],
+   "kw": "cataract surgery",
+   "volume": 116000,
+   "value": 3800,
+   "history": [
+    123013,
+    115272,
+    123245,
+    124793,
+    112463,
+    117364,
+    113792,
+    111884,
+    110247,
+    110252,
+    112883,
+    112220
+   ]
+  },
+  {
+   "name": "EVO ICL",
+   "examples": [
+    "ICL vs LASIK for high prescription",
+    "evo icl cost",
+    "is evo icl reversible"
+   ],
+   "kw": "evo icl",
+   "volume": 1300,
+   "value": 8000,
+   "history": [
+    1869,
+    629,
+    2580,
+    632,
+    496,
+    1693,
+    1947,
+    1658,
+    728,
+    689,
+    737,
+    2228
+   ]
+  },
+  {
+   "name": "Best eye doctor near me",
+   "examples": [
+    "best eye doctor near me",
+    "ophthalmologist vs optometrist",
+    "eye doctor open Saturday"
+   ],
+   "kw": "eye doctor near me",
+   "volume": 229000,
+   "value": 350,
+   "history": [
+    270860,
+    238353,
+    224220,
+    204841,
+    207795,
+    227006,
+    262318,
+    227643,
+    221442,
+    203415,
+    222459,
+    239110
+   ]
+  },
+  {
+   "name": "Dry eye treatment",
+   "examples": [
+    "IPL for dry eyes",
+    "chronic dry eye treatment",
+    "best dry eye specialist near me"
+   ],
+   "kw": "dry eye treatment",
+   "volume": 9600,
+   "value": 1200,
+   "history": [
+    9337,
+    8928,
+    8953,
+    9184,
+    9174,
+    9972,
+    9877,
+    10129,
+    9643,
+    9295,
+    10407,
+    9741
+   ]
+  },
+  {
+   "name": "PRK surgery",
+   "examples": [
+    "PRK vs LASIK recovery",
+    "prk cost",
+    "is prk safer than lasik"
+   ],
+   "kw": "prk surgery",
+   "volume": 11000,
+   "value": 4200,
+   "history": [
+    10358,
+    10030,
+    10229,
+    10197,
+    10225,
+    11435,
+    11315,
+    11054,
+    10547,
+    10415,
+    10652,
+    10249
+   ]
+  },
+  {
+   "name": "Glaucoma care",
+   "examples": [
+    "glaucoma specialist near me",
+    "new glaucoma treatments",
+    "glaucoma surgery options"
+   ],
+   "kw": "glaucoma treatment",
+   "volume": 10000,
+   "value": 2500,
+   "history": [
+    10076,
+    10141,
+    10257,
+    10246,
+    10433,
+    10531,
+    10862,
+    10942,
+    10842,
+    10189,
+    10237,
+    9999
+   ]
+  },
+  {
+   "name": "Eye exam near me",
+   "examples": [
+    "eye exam that takes my insurance",
+    "eye exam cost without insurance",
+    "same day eye exam near me"
+   ],
+   "kw": "eye exam near me",
+   "volume": 98000,
+   "value": 250,
+   "history": [
+    83118,
+    80458,
+    88326,
+    80350,
+    84891,
+    121196,
+    124938,
+    109774,
+    96067,
+    92486,
+    101001,
+    115465
+   ]
+  },
+  {
+   "name": "Keratoconus & cross-linking",
+   "examples": [
+    "keratoconus treatment options",
+    "corneal cross linking cost",
+    "scleral lenses for keratoconus"
+   ],
+   "kw": "keratoconus",
+   "volume": 52000,
+   "value": 3500,
+   "history": [
+    49922,
+    49439,
+    55211,
+    52716,
+    50562,
+    54053,
+    48839,
+    53641,
+    51030,
+    50957,
+    52364,
+    53076
+   ]
+  },
+  {
+   "name": "Macular degeneration",
+   "examples": [
+    "AMD treatment specialist",
+    "new macular degeneration treatments",
+    "wet vs dry AMD"
+   ],
+   "kw": "macular degeneration treatment",
+   "volume": 4200,
+   "value": 2800,
+   "history": [
+    4170,
+    4133,
+    4132,
+    3873,
+    3765,
+    3977,
+    4181,
+    4321,
+    4555,
+    4516,
+    4347,
+    4041
+   ]
+  },
+  {
+   "name": "Pediatric eye care",
+   "examples": [
+    "kids eye doctor near me",
+    "when should my child get an eye exam",
+    "lazy eye treatment"
+   ],
+   "kw": "pediatric eye doctor",
+   "volume": 12000,
+   "value": 300,
+   "history": [
+    12964,
+    12651,
+    12223,
+    11387,
+    9367,
+    12238,
+    12221,
+    12163,
+    11303,
+    11183,
+    12372,
+    12635
+   ]
+  }
+ ],
+ "Dentist": [
+  {
+   "name": "Dentist near me",
+   "examples": [
+    "dentist accepting new patients",
+    "best dentist near me",
+    "dentist that takes my insurance"
+   ],
+   "kw": "dentist near me",
+   "volume": 761000,
+   "value": 650,
+   "history": [
+    839901,
+    749689,
+    688385,
+    693250,
+    730300,
+    764917,
+    799997,
+    772456,
+    740131,
+    745315,
+    798701,
+    811463
+   ]
+  },
+  {
+   "name": "Dental implants",
+   "examples": [
+    "all on 4 implants near me",
+    "dental implant cost",
+    "implants vs bridge"
+   ],
+   "kw": "dental implants",
+   "volume": 230000,
+   "value": 4200,
+   "history": [
+    313777,
+    193924,
+    202173,
+    195264,
+    191503,
+    237971,
+    243820,
+    228393,
+    232802,
+    233556,
+    241246,
+    245170
+   ]
+  },
+  {
+   "name": "Invisalign",
+   "examples": [
+    "invisalign cost vs braces",
+    "invisalign provider near me",
+    "how long does invisalign take"
+   ],
+   "kw": "invisalign",
+   "volume": 434000,
+   "value": 5200,
+   "history": [
+    485296,
+    438506,
+    452391,
+    450146,
+    427551,
+    458589,
+    412779,
+    418525,
+    406780,
+    407697,
+    426072,
+    427223
+   ]
+  },
+  {
+   "name": "Veneers",
+   "examples": [
+    "how much do veneers cost",
+    "porcelain vs composite veneers",
+    "veneers before and after"
+   ],
+   "kw": "veneers",
+   "volume": 312000,
+   "value": 9000,
+   "history": [
+    366267,
+    315584,
+    294486,
+    315356,
+    321988,
+    326976,
+    298614,
+    304363,
+    297741,
+    298174,
+    303952,
+    304606
+   ]
+  },
+  {
+   "name": "Emergency dentist",
+   "examples": [
+    "emergency dentist open now",
+    "cracked tooth what to do",
+    "tooth pain relief tonight"
+   ],
+   "kw": "emergency dentist",
+   "volume": 91000,
+   "value": 900,
+   "history": [
+    86726,
+    88011,
+    86291,
+    87647,
+    90213,
+    88076,
+    86683,
+    89628,
+    90667,
+    93120,
+    102631,
+    100890
+   ]
+  },
+  {
+   "name": "Teeth whitening",
+   "examples": [
+    "professional whitening cost",
+    "zoom whitening near me",
+    "whitening for sensitive teeth"
+   ],
+   "kw": "teeth whitening",
+   "volume": 224000,
+   "value": 450,
+   "history": [
+    256693,
+    206605,
+    204274,
+    210677,
+    235540,
+    240525,
+    214975,
+    226620,
+    223166,
+    224936,
+    223730,
+    222555
+   ]
+  },
+  {
+   "name": "Root canal",
+   "examples": [
+    "root canal cost without insurance",
+    "does a root canal hurt",
+    "root canal vs extraction"
+   ],
+   "kw": "root canal",
+   "volume": 215000,
+   "value": 1200,
+   "history": [
+    225074,
+    209126,
+    212184,
+    217953,
+    207000,
+    222024,
+    216395,
+    217774,
+    208543,
+    211889,
+    217463,
+    214614
+   ]
+  },
+  {
+   "name": "Crowns & bridges",
+   "examples": [
+    "dental crown cost",
+    "how long do crowns last",
+    "same day crowns near me"
+   ],
+   "kw": "dental crown",
+   "volume": 80000,
+   "value": 1400,
+   "history": [
+    67996,
+    65113,
+    75777,
+    67892,
+    73843,
+    77408,
+    102882,
+    84515,
+    80312,
+    80295,
+    85176,
+    100390
+   ]
+  },
+  {
+   "name": "Dentures & partials",
+   "examples": [
+    "affordable dentures near me",
+    "dentures vs implants",
+    "how much do partials cost"
+   ],
+   "kw": "dentures",
+   "volume": 92000,
+   "value": 2200,
+   "history": [
+    84495,
+    77603,
+    77421,
+    91677,
+    88477,
+    95913,
+    100083,
+    100401,
+    97934,
+    97238,
+    97808,
+    98391
+   ]
+  },
+  {
+   "name": "Pediatric dentist",
+   "examples": [
+    "kids dentist near me",
+    "first dental visit age",
+    "pediatric dentist that takes medicaid"
+   ],
+   "kw": "pediatric dentist near me",
+   "volume": 77000,
+   "value": 500,
+   "history": [
+    86298,
+    78037,
+    75908,
+    72606,
+    66410,
+    79969,
+    79132,
+    78427,
+    74022,
+    73554,
+    79240,
+    85071
+   ]
+  },
+  {
+   "name": "Sedation dentistry",
+   "examples": [
+    "dentist for dental anxiety",
+    "sedation dentistry cost",
+    "what is sleep dentistry"
+   ],
+   "kw": "sedation dentistry",
+   "volume": 18000,
+   "value": 1100,
+   "history": [
+    26216,
+    20733,
+    15601,
+    15634,
+    16063,
+    16537,
+    17889,
+    17136,
+    17071,
+    16718,
+    16921,
+    17707
+   ]
+  },
+  {
+   "name": "Gum disease treatment",
+   "examples": [
+    "periodontist near me",
+    "gum disease treatment options",
+    "deep cleaning cost"
+   ],
+   "kw": "periodontist",
+   "volume": 109000,
+   "value": 1600,
+   "history": [
+    131473,
+    109014,
+    120498,
+    97770,
+    97796,
+    73326,
+    135314,
+    107433,
+    108154,
+    103797,
+    118815,
+    107389
+   ]
+  }
+ ],
+ "Dermatologist": [
+  {
+   "name": "Dermatologist near me",
+   "examples": [
+    "dermatologist that takes my insurance",
+    "best dermatologist near me",
+    "dermatologist without referral"
+   ],
+   "kw": "dermatologist near me",
+   "volume": 259000,
+   "value": 380,
+   "history": [
+    319011,
+    265896,
+    255447,
+    227977,
+    223513,
+    259122,
+    257966,
+    247046,
+    243523,
+    262720,
+    280195,
+    264635
+   ]
+  },
+  {
+   "name": "Acne treatment",
+   "examples": [
+    "accutane dermatologist near me",
+    "prescription acne treatment",
+    "adult acne specialist"
+   ],
+   "kw": "acne treatment",
+   "volume": 61000,
+   "value": 600,
+   "history": [
+    56646,
+    47884,
+    46050,
+    52161,
+    56116,
+    60485,
+    71918,
+    68909,
+    67433,
+    66751,
+    67637,
+    70524
+   ]
+  },
+  {
+   "name": "Skin cancer screening",
+   "examples": [
+    "full body skin check near me",
+    "does this mole look normal",
+    "how often should I get screened"
+   ],
+   "kw": "skin cancer screening",
+   "volume": 4600,
+   "value": 420,
+   "history": [
+    4023,
+    4585,
+    4285,
+    4082,
+    3985,
+    4250,
+    4458,
+    4620,
+    5072,
+    5419,
+    5147,
+    5076
+   ]
+  },
+  {
+   "name": "Cosmetic dermatology",
+   "examples": [
+    "dermatologist botox",
+    "cosmetic dermatologist near me",
+    "derm vs med spa for injectables"
+   ],
+   "kw": "cosmetic dermatology",
+   "volume": 3300,
+   "value": 850,
+   "history": [
+    3430,
+    3290,
+    3363,
+    3158,
+    2947,
+    3374,
+    3553,
+    3464,
+    3283,
+    3462,
+    3444,
+    3396
+   ]
+  },
+  {
+   "name": "Hair loss treatment",
+   "examples": [
+    "PRP for hair near me",
+    "dermatologist for hair loss",
+    "best hair loss treatment for women"
+   ],
+   "kw": "hair loss treatment",
+   "volume": 165000,
+   "value": 1500,
+   "history": [
+    107147,
+    114392,
+    112168,
+    122556,
+    138240,
+    122415,
+    134236,
+    345120,
+    425290,
+    100370,
+    129621,
+    132577
+   ]
+  },
+  {
+   "name": "Mole & cyst removal",
+   "examples": [
+    "mole removal cost",
+    "cyst removal near me",
+    "does mole removal leave a scar"
+   ],
+   "kw": "mole removal",
+   "volume": 27000,
+   "value": 550,
+   "history": [
+    28650,
+    24517,
+    23459,
+    23432,
+    23785,
+    26193,
+    26409,
+    27297,
+    27892,
+    28627,
+    31694,
+    31601
+   ]
+  },
+  {
+   "name": "Rosacea & redness",
+   "examples": [
+    "laser for rosacea",
+    "rosacea treatment that works",
+    "best skincare for rosacea"
+   ],
+   "kw": "rosacea treatment",
+   "volume": 32000,
+   "value": 700,
+   "history": [
+    26730,
+    27398,
+    28580,
+    29494,
+    30547,
+    35233,
+    36945,
+    38093,
+    37227,
+    33774,
+    31776,
+    28747
+   ]
+  },
+  {
+   "name": "Eczema & psoriasis",
+   "examples": [
+    "biologics for psoriasis",
+    "eczema specialist near me",
+    "psoriasis treatment options"
+   ],
+   "kw": "psoriasis treatment",
+   "volume": 166000,
+   "value": 900,
+   "history": [
+    133453,
+    148511,
+    144641,
+    145127,
+    118444,
+    119313,
+    133285,
+    271693,
+    373081,
+    133481,
+    134109,
+    141536
+   ]
+  },
+  {
+   "name": "Lasers & resurfacing",
+   "examples": [
+    "laser resurfacing near me",
+    "co2 laser cost",
+    "laser for acne scars"
+   ],
+   "kw": "laser skin resurfacing",
+   "volume": 6900,
+   "value": 950,
+   "history": [
+    6549,
+    6394,
+    6740,
+    6840,
+    6587,
+    7300,
+    7414,
+    7659,
+    6982,
+    7088,
+    6889,
+    6781
+   ]
+  },
+  {
+   "name": "Wart & skin tag removal",
+   "examples": [
+    "skin tag removal near me",
+    "wart removal cost",
+    "can a dermatologist freeze warts"
+   ],
+   "kw": "skin tag removal",
+   "volume": 75000,
+   "value": 300,
+   "history": [
+    87901,
+    78074,
+    76784,
+    70177,
+    65154,
+    72775,
+    65181,
+    73298,
+    73550,
+    77941,
+    80108,
+    83013
+   ]
+  }
+ ],
+ "Lawyer": [
+  {
+   "name": "Personal injury lawyer",
+   "examples": [
+    "best personal injury lawyer near me",
+    "how much is my injury case worth",
+    "do I need a lawyer after an accident"
+   ],
+   "kw": "personal injury lawyer",
+   "volume": 312000,
+   "value": 3500,
+   "history": [
+    419323,
+    389613,
+    301746,
+    283877,
+    289158,
+    287658,
+    267544,
+    286243,
+    300139,
+    320071,
+    279541,
+    318704
+   ]
+  },
+  {
+   "name": "Car accident lawyer",
+   "examples": [
+    "car accident lawyer no injury",
+    "should I get a lawyer for a fender bender",
+    "average car accident settlement"
+   ],
+   "kw": "car accident lawyer",
+   "volume": 295000,
+   "value": 3500,
+   "history": [
+    439647,
+    365129,
+    297024,
+    289195,
+    274032,
+    276894,
+    222356,
+    259305,
+    289172,
+    258783,
+    279029,
+    290156
+   ]
+  },
+  {
+   "name": "DUI defense",
+   "examples": [
+    "dui lawyer cost",
+    "first offense dui what happens",
+    "best dui attorney near me"
+   ],
+   "kw": "dui lawyer",
+   "volume": 170000,
+   "value": 3500,
+   "history": [
+    210125,
+    162759,
+    144918,
+    131706,
+    127865,
+    124649,
+    71484,
+    234121,
+    298269,
+    326410,
+    104256,
+    107352
+   ]
+  },
+  {
+   "name": "Divorce lawyer",
+   "examples": [
+    "divorce lawyer for men",
+    "how much does a divorce cost",
+    "divorce lawyer free consultation"
+   ],
+   "kw": "divorce lawyer",
+   "volume": 173000,
+   "value": 3500,
+   "history": [
+    160105,
+    146476,
+    124464,
+    122922,
+    116104,
+    121093,
+    141784,
+    215801,
+    247051,
+    298240,
+    223493,
+    160957
+   ]
+  },
+  {
+   "name": "Immigration lawyer",
+   "examples": [
+    "immigration lawyer near me",
+    "green card lawyer cost",
+    "best immigration attorney"
+   ],
+   "kw": "immigration lawyer",
+   "volume": 68000,
+   "value": 3500,
+   "history": [
+    65348,
+    64284,
+    62264,
+    58215,
+    55703,
+    72064,
+    63504,
+    104982,
+    71430,
+    47620,
+    74479,
+    72661
+   ]
+  },
+  {
+   "name": "Workers comp",
+   "examples": [
+    "workers comp lawyer free consultation",
+    "can I sue my employer for injury",
+    "workers comp settlement amounts"
+   ],
+   "kw": "workers comp lawyer",
+   "volume": 25000,
+   "value": 3500,
+   "history": [
+    36090,
+    22137,
+    21557,
+    21083,
+    22195,
+    24590,
+    23579,
+    24692,
+    26341,
+    25937,
+    25520,
+    29850
+   ]
+  },
+  {
+   "name": "Estate planning",
+   "examples": [
+    "estate planning attorney near me",
+    "do I need a will or a trust",
+    "cost to set up a living trust"
+   ],
+   "kw": "estate planning attorney",
+   "volume": 21000,
+   "value": 3500,
+   "history": [
+    41636,
+    35083,
+    10210,
+    9713,
+    9929,
+    10125,
+    34108,
+    21184,
+    20301,
+    19245,
+    19089,
+    26760
+   ]
+  },
+  {
+   "name": "Criminal defense",
+   "examples": [
+    "criminal defense lawyer near me",
+    "best defense attorney for felony",
+    "how much does a criminal lawyer cost"
+   ],
+   "kw": "criminal defense lawyer",
+   "volume": 152000,
+   "value": 3500,
+   "history": [
+    182360,
+    146594,
+    119918,
+    116920,
+    54019,
+    54138,
+    52452,
+    189728,
+    232789,
+    263227,
+    210479,
+    206113
+   ]
+  },
+  {
+   "name": "Bankruptcy",
+   "examples": [
+    "bankruptcy lawyer near me",
+    "chapter 7 vs chapter 13",
+    "how much does bankruptcy cost"
+   ],
+   "kw": "bankruptcy lawyer",
+   "volume": 33000,
+   "value": 3500,
+   "history": [
+    30316,
+    28248,
+    24218,
+    27974,
+    24512,
+    27688,
+    29009,
+    52666,
+    66529,
+    29186,
+    30170,
+    31066
+   ]
+  },
+  {
+   "name": "Medical malpractice",
+   "examples": [
+    "medical malpractice lawyer near me",
+    "can I sue my doctor",
+    "malpractice settlement examples"
+   ],
+   "kw": "medical malpractice lawyer",
+   "volume": 232000,
+   "value": 3500,
+   "history": [
+    235778,
+    255535,
+    173306,
+    155709,
+    156684,
+    164870,
+    164596,
+    353048,
+    370118,
+    378990,
+    183526,
+    192131
+   ]
+  }
+ ],
+ "Dispensary": [
+  {
+   "name": "Dispensary near me",
+   "examples": [
+    "best dispensary near me",
+    "dispensary open now",
+    "closest recreational dispensary"
+   ],
+   "kw": "dispensary near me",
+   "volume": 1590000,
+   "value": 600,
+   "history": [
+    1733488,
+    1502843,
+    1533563,
+    1551789,
+    1625849,
+    1474003,
+    1444556,
+    1544846,
+    1615303,
+    1614221,
+    1687241,
+    1778534
+   ]
+  },
+  {
+   "name": "Weed delivery",
+   "examples": [
+    "weed delivery near me",
+    "fastest weed delivery",
+    "is weed delivery legal in my state"
+   ],
+   "kw": "weed delivery",
+   "volume": 21000,
+   "value": 600,
+   "history": [
+    19153,
+    19174,
+    17824,
+    19601,
+    21388,
+    21258,
+    20959,
+    21335,
+    21986,
+    21146,
+    21797,
+    22143
+   ]
+  },
+  {
+   "name": "Edibles",
+   "examples": [
+    "best edibles for sleep",
+    "how long do edibles take to kick in",
+    "strongest edibles near me"
+   ],
+   "kw": "edibles",
+   "volume": 69000,
+   "value": 600,
+   "history": [
+    66673,
+    62135,
+    71387,
+    75621,
+    76658,
+    72953,
+    69068,
+    67803,
+    72746,
+    69079,
+    60889,
+    65671
+   ]
+  },
+  {
+   "name": "THC gummies",
+   "examples": [
+    "best thc gummies",
+    "thc gummies for anxiety",
+    "thc gummy dosage guide"
+   ],
+   "kw": "thc gummies",
+   "volume": 65000,
+   "value": 600,
+   "history": [
+    63874,
+    58262,
+    64331,
+    73343,
+    67351,
+    72888,
+    59719,
+    63446,
+    64591,
+    62635,
+    62333,
+    64874
+   ]
+  },
+  {
+   "name": "CBD products",
+   "examples": [
+    "best cbd oil for pain",
+    "cbd vs thc difference",
+    "where to buy cbd near me"
+   ],
+   "kw": "cbd oil",
+   "volume": 43000,
+   "value": 600,
+   "history": [
+    33988,
+    31302,
+    26843,
+    29295,
+    27013,
+    50389,
+    54812,
+    68653,
+    70023,
+    48962,
+    44912,
+    26415
+   ]
+  },
+  {
+   "name": "Cannabis delivery",
+   "examples": [
+    "cannabis delivery near me",
+    "same day cannabis delivery",
+    "cannabis delivery first time discount"
+   ],
+   "kw": "cannabis delivery",
+   "volume": 13000,
+   "value": 600,
+   "history": [
+    12426,
+    12257,
+    12214,
+    12286,
+    12585,
+    13034,
+    12735,
+    12845,
+    12963,
+    12412,
+    12627,
+    13015
+   ]
+  },
+  {
+   "name": "Best dispensary",
+   "examples": [
+    "best dispensary deals near me",
+    "highest rated dispensary",
+    "best dispensary for beginners"
+   ],
+   "kw": "best dispensary",
+   "volume": 2100,
+   "value": 600,
+   "history": [
+    2237,
+    1993,
+    2028,
+    1957,
+    1906,
+    2032,
+    2148,
+    2132,
+    2115,
+    2088,
+    2180,
+    2280
+   ]
+  },
+  {
+   "name": "Delta 8",
+   "examples": [
+    "what is delta 8",
+    "delta 8 vs delta 9",
+    "is delta 8 legal in my state"
+   ],
+   "kw": "delta 8",
+   "volume": 40000,
+   "value": 600,
+   "history": [
+    46055,
+    39733,
+    39964,
+    53059,
+    46041,
+    46276,
+    39597,
+    33657,
+    35188,
+    29950,
+    30922,
+    37346
+   ]
+  },
+  {
+   "name": "Pre-rolls & flower",
+   "examples": [
+    "weed near me open now",
+    "best strains for relaxing",
+    "cheapest ounce near me"
+   ],
+   "kw": "weed near me",
+   "volume": 36000,
+   "value": 600,
+   "history": [
+    38174,
+    35782,
+    34116,
+    33447,
+    34043,
+    33572,
+    32103,
+    35644,
+    37810,
+    38712,
+    40011,
+    41386
+   ]
+  },
+  {
+   "name": "Marijuana dispensary",
+   "examples": [
+    "marijuana dispensary near me",
+    "do I need a card for a dispensary",
+    "first time dispensary tips"
+   ],
+   "kw": "marijuana dispensary",
+   "volume": 14000,
+   "value": 600,
+   "history": [
+    19295,
+    15293,
+    12612,
+    13158,
+    13950,
+    13113,
+    13191,
+    13695,
+    14207,
+    13809,
+    14771,
+    16594
+   ]
+  }
+ ],
+ "Restaurant": [
+  {
+   "name": "Restaurants near me",
+   "examples": [
+    "best restaurants near me",
+    "restaurants open now",
+    "where should I eat tonight"
+   ],
+   "kw": "restaurants near me",
+   "volume": 6150000,
+   "value": 300,
+   "history": [
+    7599225,
+    6108410,
+    5877111,
+    5788241,
+    5882613,
+    5198489,
+    5800808,
+    6104892,
+    5958302,
+    6280768,
+    6563049,
+    6593282
+   ]
+  },
+  {
+   "name": "Pizza",
+   "examples": [
+    "best pizza near me",
+    "pizza delivery near me",
+    "ny style pizza nearby"
+   ],
+   "kw": "pizza near me",
+   "volume": 2290000,
+   "value": 300,
+   "history": [
+    2308755,
+    1951397,
+    2125366,
+    1996609,
+    2382207,
+    2295233,
+    2689381,
+    2143107,
+    2202347,
+    2228299,
+    2502308,
+    2688036
+   ]
+  },
+  {
+   "name": "Sushi",
+   "examples": [
+    "best sushi near me",
+    "all you can eat sushi",
+    "omakase near me"
+   ],
+   "kw": "sushi near me",
+   "volume": 1070000,
+   "value": 300,
+   "history": [
+    875808,
+    743689,
+    753115,
+    743703,
+    888001,
+    981682,
+    1324898,
+    1260818,
+    1243757,
+    1284727,
+    1337509,
+    1383277
+   ]
+  },
+  {
+   "name": "Brunch",
+   "examples": [
+    "best brunch near me",
+    "bottomless mimosa brunch",
+    "brunch spots with outdoor seating"
+   ],
+   "kw": "brunch near me",
+   "volume": 408000,
+   "value": 300,
+   "history": [
+    432842,
+    326991,
+    389419,
+    414928,
+    382271,
+    402665,
+    352082,
+    441010,
+    466424,
+    486863,
+    399434,
+    406031
+   ]
+  },
+  {
+   "name": "Steakhouse",
+   "examples": [
+    "best steakhouse near me",
+    "steakhouse for anniversary dinner",
+    "affordable steakhouse nearby"
+   ],
+   "kw": "steakhouse near me",
+   "volume": 194000,
+   "value": 300,
+   "history": [
+    208146,
+    188407,
+    195168,
+    197200,
+    218155,
+    172388,
+    218516,
+    183958,
+    172984,
+    177558,
+    198010,
+    200131
+   ]
+  },
+  {
+   "name": "Mexican food",
+   "examples": [
+    "best mexican food near me",
+    "authentic tacos near me",
+    "mexican restaurant with margaritas"
+   ],
+   "kw": "mexican food near me",
+   "volume": 791000,
+   "value": 300,
+   "history": [
+    901403,
+    730157,
+    745197,
+    718915,
+    769016,
+    728048,
+    655845,
+    817591,
+    770776,
+    880489,
+    877609,
+    902614
+   ]
+  },
+  {
+   "name": "Breakfast",
+   "examples": [
+    "best breakfast near me",
+    "breakfast open now",
+    "breakfast burrito near me"
+   ],
+   "kw": "breakfast near me",
+   "volume": 2080000,
+   "value": 300,
+   "history": [
+    2548748,
+    2103452,
+    2137638,
+    2140706,
+    1999284,
+    1590036,
+    1792980,
+    1979961,
+    1920187,
+    2109183,
+    2246718,
+    2434972
+   ]
+  },
+  {
+   "name": "Italian restaurant",
+   "examples": [
+    "best italian restaurant near me",
+    "romantic italian dinner spot",
+    "fresh pasta near me"
+   ],
+   "kw": "italian restaurant near me",
+   "volume": 73000,
+   "value": 300,
+   "history": [
+    86623,
+    64701,
+    70263,
+    70708,
+    70677,
+    72696,
+    75650,
+    71001,
+    68596,
+    67379,
+    71659,
+    80113
+   ]
+  },
+  {
+   "name": "Happy hour",
+   "examples": [
+    "best happy hour near me",
+    "happy hour deals today",
+    "late night happy hour"
+   ],
+   "kw": "happy hour near me",
+   "volume": 202000,
+   "value": 300,
+   "history": [
+    222098,
+    167485,
+    222493,
+    193436,
+    177392,
+    187456,
+    196305,
+    212063,
+    195438,
+    199024,
+    221518,
+    232776
+   ]
+  },
+  {
+   "name": "Chinese food",
+   "examples": [
+    "best chinese food near me",
+    "chinese delivery near me",
+    "dim sum near me"
+   ],
+   "kw": "chinese food near me",
+   "volume": 1430000,
+   "value": 300,
+   "history": [
+    1496951,
+    1335202,
+    1390493,
+    1367737,
+    1649590,
+    1409358,
+    1380919,
+    1391123,
+    1435018,
+    1363088,
+    1452103,
+    1495162
+   ]
+  }
+ ],
+ "Real Estate": [
+  {
+   "name": "Homes for sale",
+   "examples": [
+    "homes for sale near me",
+    "homes for sale under 500k",
+    "new listings this week"
+   ],
+   "kw": "homes for sale",
+   "volume": 196000,
+   "value": 9000,
+   "history": [
+    230328,
+    206798,
+    193852,
+    183370,
+    176715,
+    200591,
+    183440,
+    179597,
+    181941,
+    192208,
+    199710,
+    218428
+   ]
+  },
+  {
+   "name": "Realtor near me",
+   "examples": [
+    "best realtor near me",
+    "top rated real estate agent",
+    "how to choose a realtor"
+   ],
+   "kw": "realtor near me",
+   "volume": 11000,
+   "value": 9000,
+   "history": [
+    13444,
+    11603,
+    10953,
+    9685,
+    9184,
+    11396,
+    11415,
+    11477,
+    11301,
+    11046,
+    11624,
+    12133
+   ]
+  },
+  {
+   "name": "Houses for sale",
+   "examples": [
+    "houses for sale near me with pool",
+    "cheap houses for sale nearby",
+    "houses with big yards for sale"
+   ],
+   "kw": "houses for sale near me",
+   "volume": 393000,
+   "value": 9000,
+   "history": [
+    450826,
+    331913,
+    352679,
+    337272,
+    301644,
+    361566,
+    350485,
+    422666,
+    430241,
+    431774,
+    456062,
+    483583
+   ]
+  },
+  {
+   "name": "Apartments for rent",
+   "examples": [
+    "apartments for rent near me",
+    "pet friendly apartments",
+    "apartments with move in specials"
+   ],
+   "kw": "apartments for rent",
+   "volume": 312000,
+   "value": 9000,
+   "history": [
+    330303,
+    310738,
+    272887,
+    286376,
+    280463,
+    308361,
+    294777,
+    320349,
+    318556,
+    327795,
+    341946,
+    355171
+   ]
+  },
+  {
+   "name": "Real estate agent",
+   "examples": [
+    "real estate agent near me",
+    "agent for first time buyers",
+    "real estate agent commission explained"
+   ],
+   "kw": "real estate agent",
+   "volume": 67000,
+   "value": 9000,
+   "history": [
+    81386,
+    67456,
+    63584,
+    94833,
+    69925,
+    64627,
+    53953,
+    62113,
+    63123,
+    62484,
+    60422,
+    63239
+   ]
+  },
+  {
+   "name": "Condos for sale",
+   "examples": [
+    "condos for sale near me",
+    "condo vs house pros and cons",
+    "condos with low hoa fees"
+   ],
+   "kw": "condos for sale",
+   "volume": 25000,
+   "value": 9000,
+   "history": [
+    26585,
+    25505,
+    23080,
+    25872,
+    19774,
+    22727,
+    26432,
+    26750,
+    25549,
+    24631,
+    26511,
+    28494
+   ]
+  },
+  {
+   "name": "Sell my house",
+   "examples": [
+    "sell my house fast",
+    "what is my home worth",
+    "best time to sell a house"
+   ],
+   "kw": "sell my house",
+   "volume": 11000,
+   "value": 9000,
+   "history": [
+    10923,
+    10207,
+    9992,
+    9362,
+    8264,
+    10161,
+    10468,
+    11067,
+    11682,
+    11621,
+    11389,
+    11911
+   ]
+  },
+  {
+   "name": "Open houses",
+   "examples": [
+    "open houses near me this weekend",
+    "open houses today",
+    "what to ask at an open house"
+   ],
+   "kw": "open houses near me",
+   "volume": 29000,
+   "value": 9000,
+   "history": [
+    29494,
+    25913,
+    27070,
+    30384,
+    16006,
+    23621,
+    27851,
+    39618,
+    38344,
+    37293,
+    26093,
+    27796
+   ]
+  },
+  {
+   "name": "First time buyer",
+   "examples": [
+    "first time home buyer programs",
+    "how much down payment do I need",
+    "first time buyer mistakes to avoid"
+   ],
+   "kw": "first time home buyer",
+   "volume": 37000,
+   "value": 9000,
+   "history": [
+    36842,
+    33402,
+    32458,
+    29614,
+    29582,
+    43732,
+    42537,
+    41337,
+    41786,
+    39177,
+    37770,
+    39572
+   ]
+  },
+  {
+   "name": "New construction",
+   "examples": [
+    "new construction homes near me",
+    "new build vs resale",
+    "new construction incentives right now"
+   ],
+   "kw": "new construction homes",
+   "volume": 16000,
+   "value": 9000,
+   "history": [
+    13678,
+    16418,
+    14228,
+    14296,
+    14134,
+    13517,
+    14699,
+    16872,
+    15688,
+    17968,
+    20267,
+    18300
+   ]
+  }
+ ],
+ "Auto Services": [
+  {
+   "name": "Auto repair",
+   "examples": [
+    "best auto repair near me",
+    "trustworthy mechanic nearby",
+    "auto repair open saturday"
+   ],
+   "kw": "auto repair near me",
+   "volume": 131000,
+   "value": 450,
+   "history": [
+    133335,
+    124423,
+    124709,
+    113144,
+    120922,
+    127365,
+    123619,
+    136629,
+    126672,
+    131618,
+    152889,
+    160082
+   ]
+  },
+  {
+   "name": "Mechanic",
+   "examples": [
+    "mobile mechanic near me",
+    "honest mechanic near me",
+    "mechanic that does free estimates"
+   ],
+   "kw": "mechanic near me",
+   "volume": 302000,
+   "value": 450,
+   "history": [
+    297693,
+    258625,
+    310590,
+    301810,
+    290798,
+    291356,
+    293342,
+    316222,
+    301174,
+    303008,
+    322818,
+    340395
+   ]
+  },
+  {
+   "name": "Oil change",
+   "examples": [
+    "cheapest oil change near me",
+    "oil change open now",
+    "how often do I need an oil change"
+   ],
+   "kw": "oil change near me",
+   "volume": 905000,
+   "value": 450,
+   "history": [
+    908750,
+    847765,
+    944762,
+    878036,
+    849862,
+    846573,
+    868792,
+    917433,
+    845738,
+    919551,
+    983584,
+    1045993
+   ]
+  },
+  {
+   "name": "Brake repair",
+   "examples": [
+    "brake repair cost",
+    "brakes squeaking what does it mean",
+    "brake pad replacement near me"
+   ],
+   "kw": "brake repair",
+   "volume": 42000,
+   "value": 450,
+   "history": [
+    63354,
+    45203,
+    42179,
+    38810,
+    37321,
+    37160,
+    38140,
+    39690,
+    40134,
+    40104,
+    42373,
+    44501
+   ]
+  },
+  {
+   "name": "Tire shop",
+   "examples": [
+    "tire shop near me open now",
+    "cheapest place to buy tires",
+    "flat tire repair near me"
+   ],
+   "kw": "tire shop near me",
+   "volume": 449000,
+   "value": 450,
+   "history": [
+    537196,
+    471265,
+    443153,
+    451056,
+    428828,
+    393225,
+    375746,
+    428171,
+    429084,
+    430830,
+    483931,
+    520104
+   ]
+  },
+  {
+   "name": "Transmission",
+   "examples": [
+    "transmission repair cost",
+    "transmission slipping symptoms",
+    "rebuild vs replace transmission"
+   ],
+   "kw": "transmission repair",
+   "volume": 38000,
+   "value": 450,
+   "history": [
+    46865,
+    37421,
+    35920,
+    35823,
+    34570,
+    35316,
+    37691,
+    40023,
+    38694,
+    38369,
+    39684,
+    41365
+   ]
+  },
+  {
+   "name": "Car detailing",
+   "examples": [
+    "best car detailing near me",
+    "interior detailing cost",
+    "mobile car detailing"
+   ],
+   "kw": "car detailing near me",
+   "volume": 134000,
+   "value": 450,
+   "history": [
+    154249,
+    130204,
+    118751,
+    108831,
+    114673,
+    111681,
+    125863,
+    144000,
+    142226,
+    152521,
+    151940,
+    156285
+   ]
+  },
+  {
+   "name": "Windshield",
+   "examples": [
+    "windshield replacement near me",
+    "windshield chip repair cost",
+    "does insurance cover windshield"
+   ],
+   "kw": "windshield replacement",
+   "volume": 123000,
+   "value": 450,
+   "history": [
+    133425,
+    115046,
+    112024,
+    104032,
+    107628,
+    112179,
+    116619,
+    128719,
+    130517,
+    132056,
+    138439,
+    141849
+   ]
+  },
+  {
+   "name": "Body shop",
+   "examples": [
+    "best body shop near me",
+    "collision repair estimate",
+    "body shop that works with insurance"
+   ],
+   "kw": "body shop near me",
+   "volume": 48000,
+   "value": 450,
+   "history": [
+    55425,
+    46588,
+    45090,
+    43436,
+    46294,
+    48419,
+    49784,
+    48680,
+    47053,
+    46538,
+    50879,
+    51053
+   ]
+  },
+  {
+   "name": "AC repair",
+   "examples": [
+    "car ac repair near me",
+    "car ac blowing hot air",
+    "car ac recharge cost"
+   ],
+   "kw": "car ac repair",
+   "volume": 27000,
+   "value": 450,
+   "history": [
+    39666,
+    26650,
+    19459,
+    8433,
+    7242,
+    7736,
+    11408,
+    18376,
+    27230,
+    41646,
+    59217,
+    59955
+   ]
+  }
+ ],
+ "Veterinarian": [
+  {
+   "name": "Vet near me",
+   "examples": [
+    "best veterinarian near me",
+    "vet accepting new patients",
+    "affordable vet nearby"
+   ],
+   "kw": "veterinarian near me",
+   "volume": 124000,
+   "value": 700,
+   "history": [
+    138238,
+    129866,
+    128241,
+    120529,
+    118923,
+    123779,
+    123676,
+    106356,
+    121915,
+    112119,
+    126824,
+    141530
+   ]
+  },
+  {
+   "name": "Emergency vet",
+   "examples": [
+    "emergency vet open now",
+    "24 hour animal hospital",
+    "my dog ate chocolate what do I do"
+   ],
+   "kw": "emergency vet near me",
+   "volume": 153000,
+   "value": 700,
+   "history": [
+    171271,
+    155754,
+    146827,
+    163825,
+    161878,
+    133808,
+    128355,
+    136781,
+    142191,
+    157634,
+    159071,
+    178071
+   ]
+  },
+  {
+   "name": "Animal hospital",
+   "examples": [
+    "animal hospital near me",
+    "animal hospital vs vet clinic",
+    "best animal hospital nearby"
+   ],
+   "kw": "animal hospital",
+   "volume": 20000,
+   "value": 700,
+   "history": [
+    20170,
+    20127,
+    19113,
+    18125,
+    18307,
+    18169,
+    17979,
+    18845,
+    19181,
+    20394,
+    22152,
+    22550
+   ]
+  },
+  {
+   "name": "Pet dental",
+   "examples": [
+    "dog teeth cleaning cost",
+    "does my dog need a dental cleaning",
+    "anesthesia free dog teeth cleaning"
+   ],
+   "kw": "dog teeth cleaning",
+   "volume": 12000,
+   "value": 700,
+   "history": [
+    11463,
+    10888,
+    10949,
+    10669,
+    10836,
+    12109,
+    12651,
+    12004,
+    11615,
+    11334,
+    11925,
+    12306
+   ]
+  },
+  {
+   "name": "Spay & neuter",
+   "examples": [
+    "low cost spay and neuter near me",
+    "how much does neutering cost",
+    "best age to spay a puppy"
+   ],
+   "kw": "low cost spay and neuter",
+   "volume": 2700,
+   "value": 700,
+   "history": [
+    2689,
+    2663,
+    2496,
+    2498,
+    2444,
+    2774,
+    2726,
+    2643,
+    2550,
+    2733,
+    2852,
+    2775
+   ]
+  },
+  {
+   "name": "Vaccinations",
+   "examples": [
+    "pet vaccinations near me",
+    "puppy shot schedule",
+    "low cost pet vaccine clinic"
+   ],
+   "kw": "pet vaccinations near me",
+   "volume": 3000,
+   "value": 700,
+   "history": [
+    3096,
+    2826,
+    2529,
+    2479,
+    2447,
+    2413,
+    2486,
+    3105,
+    3065,
+    3162,
+    4139,
+    4054
+   ]
+  },
+  {
+   "name": "24 hour vet",
+   "examples": [
+    "24 hour vet near me",
+    "after hours vet care",
+    "overnight pet emergency"
+   ],
+   "kw": "24 hour vet",
+   "volume": 6100,
+   "value": 700,
+   "history": [
+    7032,
+    6632,
+    5939,
+    5871,
+    5857,
+    5192,
+    4930,
+    5210,
+    5773,
+    6428,
+    6866,
+    7443
+   ]
+  },
+  {
+   "name": "Cat vet",
+   "examples": [
+    "cat only vet near me",
+    "cat not eating when to worry",
+    "cat vaccines cost"
+   ],
+   "kw": "cat vet near me",
+   "volume": 8500,
+   "value": 700,
+   "history": [
+    8723,
+    8357,
+    8170,
+    8264,
+    7525,
+    8082,
+    7794,
+    8110,
+    8422,
+    8897,
+    9635,
+    9666
+   ]
+  },
+  {
+   "name": "Pet allergies",
+   "examples": [
+    "dog itching home remedies vs vet",
+    "dog allergy testing cost",
+    "best treatment for dog skin allergies"
+   ],
+   "kw": "dog allergy treatment",
+   "volume": 1800,
+   "value": 700,
+   "history": [
+    1717,
+    1460,
+    1523,
+    1248,
+    1148,
+    1197,
+    1366,
+    1450,
+    5052,
+    1948,
+    1650,
+    1665
+   ]
+  },
+  {
+   "name": "Exotic pets",
+   "examples": [
+    "exotic vet near me",
+    "vet for rabbits near me",
+    "reptile vet nearby"
+   ],
+   "kw": "exotic vet near me",
+   "volume": 8700,
+   "value": 700,
+   "history": [
+    9813,
+    8268,
+    8225,
+    7546,
+    8268,
+    8751,
+    8218,
+    8953,
+    8779,
+    8644,
+    9586,
+    9451
+   ]
+  }
+ ],
+ "Beauty & Salon": [
+  {
+   "name": "Hair salon",
+   "examples": [
+    "best hair salon near me",
+    "hair salon for curly hair",
+    "salon open sunday"
+   ],
+   "kw": "hair salon near me",
+   "volume": 319000,
+   "value": 800,
+   "history": [
+    349156,
+    315010,
+    298995,
+    275802,
+    268668,
+    301271,
+    316462,
+    335023,
+    331959,
+    336096,
+    355615,
+    344267
+   ]
+  },
+  {
+   "name": "Nail salon",
+   "examples": [
+    "best nail salon near me",
+    "nail salon open now",
+    "gel x nails near me"
+   ],
+   "kw": "nail salon near me",
+   "volume": 794000,
+   "value": 800,
+   "history": [
+    1019252,
+    724790,
+    687677,
+    644229,
+    755297,
+    596732,
+    636815,
+    796950,
+    837704,
+    935911,
+    939708,
+    952045
+   ]
+  },
+  {
+   "name": "Barber shop",
+   "examples": [
+    "best barber near me",
+    "barber that does fades",
+    "walk in barber shop"
+   ],
+   "kw": "barber shop near me",
+   "volume": 116000,
+   "value": 800,
+   "history": [
+    136677,
+    112848,
+    109258,
+    110808,
+    104301,
+    104297,
+    117016,
+    113228,
+    112949,
+    122701,
+    122023,
+    123279
+   ]
+  },
+  {
+   "name": "Lash extensions",
+   "examples": [
+    "lash extensions near me",
+    "hybrid vs volume lashes",
+    "how long do lash extensions last"
+   ],
+   "kw": "lash extensions",
+   "volume": 44000,
+   "value": 800,
+   "history": [
+    49696,
+    44473,
+    41262,
+    38896,
+    40622,
+    42954,
+    46815,
+    48667,
+    42539,
+    42264,
+    45496,
+    46445
+   ]
+  },
+  {
+   "name": "Balayage",
+   "examples": [
+    "balayage near me",
+    "balayage vs highlights",
+    "balayage cost"
+   ],
+   "kw": "balayage",
+   "volume": 120000,
+   "value": 800,
+   "history": [
+    131289,
+    110063,
+    110222,
+    109858,
+    117739,
+    117558,
+    112199,
+    127129,
+    122828,
+    121676,
+    128107,
+    127104
+   ]
+  },
+  {
+   "name": "Waxing",
+   "examples": [
+    "brazilian wax near me",
+    "waxing vs sugaring",
+    "first brazilian wax tips"
+   ],
+   "kw": "brazilian wax near me",
+   "volume": 52000,
+   "value": 800,
+   "history": [
+    54968,
+    43641,
+    43552,
+    39819,
+    41715,
+    47144,
+    53271,
+    58444,
+    55183,
+    60468,
+    65570,
+    61024
+   ]
+  },
+  {
+   "name": "Spray tan",
+   "examples": [
+    "best spray tan near me",
+    "how long does a spray tan last",
+    "spray tan before event timing"
+   ],
+   "kw": "spray tan near me",
+   "volume": 72000,
+   "value": 800,
+   "history": [
+    55820,
+    62826,
+    72544,
+    62006,
+    55341,
+    57693,
+    70120,
+    89346,
+    98152,
+    97906,
+    80455,
+    59818
+   ]
+  },
+  {
+   "name": "Brow services",
+   "examples": [
+    "brow lamination near me",
+    "brow lamination vs microblading",
+    "how long does brow lamination last"
+   ],
+   "kw": "brow lamination",
+   "volume": 110000,
+   "value": 800,
+   "history": [
+    114784,
+    107082,
+    107898,
+    106745,
+    104929,
+    115617,
+    120385,
+    119299,
+    111300,
+    106784,
+    108805,
+    100074
+   ]
+  },
+  {
+   "name": "Keratin treatment",
+   "examples": [
+    "keratin treatment near me",
+    "keratin treatment cost",
+    "is keratin safe for my hair"
+   ],
+   "kw": "keratin treatment",
+   "volume": 46000,
+   "value": 800,
+   "history": [
+    51481,
+    43185,
+    39898,
+    43410,
+    42855,
+    41724,
+    38508,
+    42404,
+    43666,
+    48604,
+    54644,
+    55869
+   ]
+  },
+  {
+   "name": "Mens haircut",
+   "examples": [
+    "mens haircut near me",
+    "best mens haircut for round face",
+    "cheap mens haircut nearby"
+   ],
+   "kw": "mens haircut near me",
+   "volume": 8500,
+   "value": 800,
+   "history": [
+    9151,
+    8012,
+    8229,
+    7724,
+    8057,
+    7681,
+    8034,
+    8147,
+    8554,
+    8757,
+    9783,
+    9380
+   ]
+  }
+ ],
+ "Home Services": [
+  {
+   "name": "Plumber",
+   "examples": [
+    "emergency plumber near me",
+    "plumber open now",
+    "how much do plumbers charge"
+   ],
+   "kw": "plumber near me",
+   "volume": 407000,
+   "value": 1200,
+   "history": [
+    336242,
+    245805,
+    548860,
+    484318,
+    260562,
+    271821,
+    683625,
+    399088,
+    360337,
+    329927,
+    468072,
+    494010
+   ]
+  },
+  {
+   "name": "Electrician",
+   "examples": [
+    "licensed electrician near me",
+    "electrician cost per hour",
+    "electrician for panel upgrade"
+   ],
+   "kw": "electrician near me",
+   "volume": 216000,
+   "value": 1200,
+   "history": [
+    227781,
+    218916,
+    207967,
+    184327,
+    191597,
+    191965,
+    236144,
+    201491,
+    206306,
+    212563,
+    241810,
+    268488
+   ]
+  },
+  {
+   "name": "HVAC repair",
+   "examples": [
+    "hvac repair near me",
+    "ac not cooling what to check",
+    "hvac tune up cost"
+   ],
+   "kw": "hvac repair near me",
+   "volume": 94000,
+   "value": 1200,
+   "history": [
+    89043,
+    97825,
+    109334,
+    82357,
+    84351,
+    83889,
+    97834,
+    89154,
+    89643,
+    92452,
+    105765,
+    110472
+   ]
+  },
+  {
+   "name": "Roof repair",
+   "examples": [
+    "roof repair near me",
+    "roof leak repair cost",
+    "repair or replace my roof"
+   ],
+   "kw": "roof repair",
+   "volume": 68000,
+   "value": 1200,
+   "history": [
+    132802,
+    110476,
+    100203,
+    93424,
+    96309,
+    39856,
+    38859,
+    39802,
+    42734,
+    40063,
+    40581,
+    46861
+   ]
+  },
+  {
+   "name": "Garage door",
+   "examples": [
+    "garage door repair near me",
+    "garage door spring replacement cost",
+    "garage door won't open"
+   ],
+   "kw": "garage door repair",
+   "volume": 152000,
+   "value": 1200,
+   "history": [
+    160985,
+    142684,
+    138954,
+    130811,
+    139186,
+    133152,
+    164031,
+    155445,
+    154890,
+    162787,
+    169311,
+    170458
+   ]
+  },
+  {
+   "name": "Pest control",
+   "examples": [
+    "best pest control near me",
+    "pest control cost",
+    "how to get rid of ants permanently"
+   ],
+   "kw": "pest control near me",
+   "volume": 177000,
+   "value": 1200,
+   "history": [
+    219634,
+    185586,
+    147615,
+    113631,
+    112005,
+    139805,
+    162525,
+    177585,
+    197362,
+    214025,
+    225440,
+    230998
+   ]
+  },
+  {
+   "name": "House cleaning",
+   "examples": [
+    "house cleaning services near me",
+    "deep cleaning cost",
+    "move out cleaning service"
+   ],
+   "kw": "house cleaning services",
+   "volume": 44000,
+   "value": 1200,
+   "history": [
+    48497,
+    48563,
+    42322,
+    39336,
+    37772,
+    42492,
+    41938,
+    44358,
+    44169,
+    46879,
+    47589,
+    47991
+   ]
+  },
+  {
+   "name": "Landscaping",
+   "examples": [
+    "landscaping companies near me",
+    "landscape design cost",
+    "low maintenance yard ideas"
+   ],
+   "kw": "landscaping near me",
+   "volume": 96000,
+   "value": 1200,
+   "history": [
+    94640,
+    95510,
+    77460,
+    61386,
+    40988,
+    72247,
+    70085,
+    108715,
+    147076,
+    149318,
+    125499,
+    105664
+   ]
+  },
+  {
+   "name": "Water heater",
+   "examples": [
+    "water heater replacement cost",
+    "tankless vs tank water heater",
+    "water heater leaking what to do"
+   ],
+   "kw": "water heater replacement",
+   "volume": 112000,
+   "value": 1200,
+   "history": [
+    110329,
+    127225,
+    122932,
+    107500,
+    119936,
+    121975,
+    135744,
+    98410,
+    96596,
+    97468,
+    98218,
+    112018
+   ]
+  },
+  {
+   "name": "AC repair",
+   "examples": [
+    "ac repair near me open now",
+    "ac repair cost",
+    "why is my ac freezing up"
+   ],
+   "kw": "ac repair near me",
+   "volume": 102000,
+   "value": 1200,
+   "history": [
+    166178,
+    62811,
+    127997,
+    26711,
+    28857,
+    29941,
+    128942,
+    55374,
+    78288,
+    136219,
+    179029,
+    203005
+   ]
+  }
+ ],
+ "Construction & Remodel": [
+  {
+   "name": "General contractor",
+   "examples": [
+    "best general contractor near me",
+    "how to vet a contractor",
+    "general contractor vs handyman"
+   ],
+   "kw": "general contractor near me",
+   "volume": 10000,
+   "value": 12000,
+   "history": [
+    11948,
+    10922,
+    10565,
+    8526,
+    7846,
+    9761,
+    9983,
+    10215,
+    10372,
+    10210,
+    11242,
+    12563
+   ]
+  },
+  {
+   "name": "Kitchen remodel",
+   "examples": [
+    "average kitchen remodel cost",
+    "kitchen remodel on a budget",
+    "how long does a kitchen remodel take"
+   ],
+   "kw": "kitchen remodel cost",
+   "volume": 11000,
+   "value": 12000,
+   "history": [
+    9383,
+    9223,
+    8690,
+    9405,
+    11608,
+    12298,
+    11520,
+    11617,
+    10955,
+    10876,
+    10800,
+    11253
+   ]
+  },
+  {
+   "name": "Bathroom remodel",
+   "examples": [
+    "bathroom remodel cost",
+    "small bathroom remodel ideas",
+    "walk in shower conversion cost"
+   ],
+   "kw": "bathroom remodel",
+   "volume": 107000,
+   "value": 12000,
+   "history": [
+    131347,
+    118419,
+    116735,
+    101860,
+    97754,
+    111876,
+    107694,
+    104405,
+    99000,
+    95669,
+    96441,
+    100877
+   ]
+  },
+  {
+   "name": "Home addition",
+   "examples": [
+    "home addition cost per square foot",
+    "is a home addition worth it",
+    "do I need permits for an addition"
+   ],
+   "kw": "home addition cost",
+   "volume": 1700,
+   "value": 12000,
+   "history": [
+    1585,
+    1477,
+    1503,
+    1456,
+    1520,
+    1851,
+    1819,
+    1848,
+    1878,
+    1712,
+    1670,
+    1755
+   ]
+  },
+  {
+   "name": "Custom homes",
+   "examples": [
+    "custom home builder near me",
+    "cost to build a custom home",
+    "custom vs spec home"
+   ],
+   "kw": "custom home builder",
+   "volume": 15000,
+   "value": 12000,
+   "history": [
+    21277,
+    19026,
+    15356,
+    14555,
+    13211,
+    14952,
+    14493,
+    14163,
+    14702,
+    14278,
+    14592,
+    15215
+   ]
+  },
+  {
+   "name": "ADU construction",
+   "examples": [
+    "adu builder near me",
+    "how much does an adu cost",
+    "adu rental income potential"
+   ],
+   "kw": "adu builder",
+   "volume": 4500,
+   "value": 12000,
+   "history": [
+    5405,
+    4301,
+    3992,
+    3095,
+    3505,
+    4677,
+    4291,
+    5245,
+    4701,
+    4937,
+    4918,
+    5199
+   ]
+  },
+  {
+   "name": "Deck & patio",
+   "examples": [
+    "deck builder near me",
+    "composite vs wood deck cost",
+    "do I need a permit for a deck"
+   ],
+   "kw": "deck builder",
+   "volume": 25000,
+   "value": 12000,
+   "history": [
+    28747,
+    31181,
+    27490,
+    27071,
+    21713,
+    20301,
+    21357,
+    22852,
+    23763,
+    24399,
+    23733,
+    23833
+   ]
+  },
+  {
+   "name": "Concrete work",
+   "examples": [
+    "concrete contractor near me",
+    "concrete driveway cost",
+    "stamped concrete patio cost"
+   ],
+   "kw": "concrete contractor",
+   "volume": 10000,
+   "value": 12000,
+   "history": [
+    10450,
+    9486,
+    9056,
+    7694,
+    7087,
+    8446,
+    9634,
+    10814,
+    11302,
+    11681,
+    12244,
+    12760
+   ]
+  },
+  {
+   "name": "Painting",
+   "examples": [
+    "house painters near me",
+    "cost to paint house exterior",
+    "interior painting cost per room"
+   ],
+   "kw": "house painters near me",
+   "volume": 29000,
+   "value": 12000,
+   "history": [
+    40155,
+    36205,
+    20280,
+    16904,
+    12830,
+    18878,
+    31623,
+    33017,
+    32888,
+    33251,
+    33418,
+    32695
+   ]
+  },
+  {
+   "name": "Whole home remodel",
+   "examples": [
+    "remodeling contractor near me",
+    "whole house remodel cost",
+    "remodel or move calculator"
+   ],
+   "kw": "remodeling contractor",
+   "volume": 14000,
+   "value": 12000,
+   "history": [
+    14251,
+    12405,
+    11575,
+    11095,
+    11162,
+    14867,
+    14947,
+    14146,
+    14956,
+    14117,
+    13795,
+    15479
+   ]
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "findability-calculator",
+  "version": "1.0.0",
+  "description": "Local AI Registry, Findability Value Calculator. What being found by AI is worth to your practice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seo-platform-x/findability-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seo-platform-x/findability-calculator/issues"
+  },
+  "homepage": "https://github.com/seo-platform-x/findability-calculator#readme",
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

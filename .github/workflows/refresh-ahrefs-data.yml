@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "ahrefs-refresh-bot"
           git config user.email "actions@github.com"
-          git add index.html data/latest.json
+          git add data/verticals.json data/meta.json data/latest.json
           if git diff --cached --quiet; then
             echo "No data changes this month."
           else

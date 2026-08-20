@@ -74,91 +74,34 @@ function loadFromFile(path) {
 }
 
 function patchIndex(snapshot) {
-  let html = readFileSync(INDEX, "utf8");
+  // Data-as-data: update volumes + history in data/verticals.json and the date stamp in data/meta.json.
+  const vPath = join(ROOT, "data", "verticals.json");
+  const verticals = JSON.parse(readFileSync(vPath, "utf8"));
   let updated = 0;
   const missing = [];
-
-  for (const [kw, { volume, history }] of Object.entries(snapshot.rows)) {
-    const esc = kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const re = new RegExp(
-      `(kw:"${esc}",volume:)[0-9.e]+(,value:[0-9.e]+,history:\\[)[0-9.e,]*(\\])`
-    );
-    if (!re.test(html)) {
-      missing.push(kw);
-      continue;
-    }
-    html = html.replace(re, `$1${volume}$2${history.join(",")}$3`);
-    updated++;
+  const found = new Set();
+  for (const key of Object.keys(verticals)) {
+    verticals[key] = verticals[key].map((c) => {
+      const fresh = snapshot.rows[c.kw];
+      if (!fresh) return c;
+      found.add(c.kw);
+      updated++;
+      return { ...c, volume: fresh.volume, history: fresh.history };
+    });
   }
+  for (const kw of Object.keys(snapshot.rows)) if (!found.has(kw)) missing.push(kw);
+  writeFileSync(vPath, JSON.stringify(verticals, null, 1) + "\n");
 
-  // Refresh the visible date stamps ("Ahrefs data \xB7 US \xB7 Aug 2026" and "Aug 2026 snapshot").
   const now = new Date();
   const label = `${MONTHS[now.getUTCMonth()]} ${now.getUTCFullYear()}`;
-  html = html.replace(
-    /(Ahrefs data \\xB7 US \\xB7 )[A-Z][a-z]{2} 20\d{2}/g,
-    `$1${label}`
-  );
-  html = html.replace(/[A-Z][a-z]{2} 20\d{2}( snapshot)/g, `${label}$1`);
+  writeFileSync(join(ROOT, "data", "meta.json"), JSON.stringify({ label }) + "\n");
 
-  writeFileSync(INDEX, html);
-  console.log(`Patched ${updated} clusters. Date stamp set to ${label}.`);
-  if (missing.length) {
-    console.warn(`No match in index.html for: ${missing.join(", ")}`);
-  }
+  console.log(`Patched ${updated} clusters in verticals.json. Date stamp set to ${label}.`);
+  if (missing.length) console.warn(`Fetched but not in any vertical: ${missing.slice(0, 8).join(", ")}${missing.length > 8 ? "\u2026" : ""}`);
   if (updated === 0) {
     console.error("Nothing was patched. Aborting so the workflow fails loudly.");
     process.exit(1);
   }
-}
-
-// ---- Prefill keyword pool for user-added clusters --------------------------
-// Pulls top keywords by US volume per category (data/pool-seeds.json) via the
-// matching-terms endpoint and writes a flat {keyword: volume} lookup that the
-// site checks when a visitor adds a custom cluster. Cost: 10 units per keyword.
-
-async function refreshPool() {
-  const key = process.env.AHREFS_API_KEY;
-  if (!key) {
-    console.error("AHREFS_API_KEY env var is required for pool refresh.");
-    process.exit(1);
-  }
-  const { categories, per_category_limit } = JSON.parse(
-    readFileSync(join(ROOT, "data", "pool-seeds.json"), "utf8")
-  );
-  const pool = {};
-  let fetched = 0;
-  for (const [category, seeds] of Object.entries(categories)) {
-    const params = new URLSearchParams({
-      country: "us",
-      keywords: seeds.join(","),
-      select: "keyword,volume",
-      order_by: "volume:desc",
-      limit: String(per_category_limit),
-      match_mode: "terms",
-      output: "json",
-    });
-    const res = await fetch(
-      `https://api.ahrefs.com/v3/keywords-explorer/matching-terms?${params}`,
-      { headers: { Authorization: `Bearer ${key}`, Accept: "application/json" } }
-    );
-    if (!res.ok) {
-      console.error(`Pool fetch failed for "${category}" (${res.status}): ${await res.text()}`);
-      process.exit(1);
-    }
-    const data = await res.json();
-    let added = 0;
-    for (const row of data.keywords ?? []) {
-      if (!row.keyword || row.volume == null || row.volume <= 0) continue;
-      const kw = row.keyword.toLowerCase().replace(/\s+/g, " ").trim();
-      pool[kw] = Math.max(pool[kw] ?? 0, row.volume);
-      added++;
-    }
-    fetched += added;
-    console.log(`  ${category}: ${added} keywords`);
-  }
-  const sorted = Object.fromEntries(Object.entries(pool).sort((a, b) => b[1] - a[1]));
-  writeFileSync(join(ROOT, "data", "volumes.json"), JSON.stringify(sorted) + "\n");
-  console.log(`Pool written: ${Object.keys(sorted).length} unique keywords (${fetched} fetched, ~${fetched * 10} units).`);
 }
 
 const poolOnly = process.argv.includes("--pool-only");

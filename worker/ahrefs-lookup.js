@@ -118,7 +118,7 @@ async function handleProfile(url, cache, ip, env, cors) {
     .replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
   if (!DOMAIN_RE.test(domain)) return json({ error: "invalid domain" }, 400, cors);
 
-  const cacheKey = new Request("https://cache.internal/profile-v3/" + encodeURIComponent(domain));
+  const cacheKey = new Request("https://cache.internal/profile-v4/" + encodeURIComponent(domain));
   const hit = await cache.match(cacheKey);
   if (hit) return json({ ...(await hit.json()), cached: true }, 200, cors);
 
@@ -146,7 +146,9 @@ async function handleProfile(url, cache, ip, env, cors) {
   const city = inferCity(rows);
   const seen = new Set();
   const uniq = rows.filter((r) => !seen.has(r.keyword) && seen.add(r.keyword));
-  const byRelevance = (a, b) => (a.position ?? 99) - (b.position ?? 99) || b.volume - a.volume;
+  const sig = CATEGORIES[category] || [];
+  const isCore = (r) => sig.some((t) => r.keyword.includes(t)) || / near me| cost| price| best /.test(" " + r.keyword);
+  const byRelevance = (a, b) => (isCore(b) - isCore(a)) || (a.position ?? 99) - (b.position ?? 99) || b.volume - a.volume;
   let top = uniq.filter((r) => r.volume >= 50).sort(byRelevance).slice(0, 8);
   if (top.length < 3) top = [...uniq].sort(byRelevance).slice(0, 5);
 

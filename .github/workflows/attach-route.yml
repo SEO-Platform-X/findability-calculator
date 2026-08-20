@@ -1,0 +1,68 @@
+name: Attach calculator route
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint scoped token, attach route, clean up
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          CF="https://api.cloudflare.com/client/v4"
+          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          ZID=$(curl -s -H "$AUTH" "$CF/zones?name=localai.life" | python3 -c "import json,sys; print(json.load(sys.stdin)['result'][0]['id'])")
+
+          PG=$(curl -s -H "$AUTH" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/permission_groups")
+          echo "$PG" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+if not d.get('success'):
+    print('PGFAIL ' + json.dumps(d.get('errors'))[:200])
+else:
+    ids={}
+    for g in d['result']:
+        if g['name'] in ('Workers Routes Write','Zone Read'): ids[g['name']]=g['id']
+    print('PGOK ' + json.dumps(ids))
+" > /tmp/pg.txt
+          cat /tmp/pg.txt
+          if grep -q PGFAIL /tmp/pg.txt; then
+            echo "::error::Token cannot list permission groups: $(cat /tmp/pg.txt)"
+            exit 1
+          fi
+          ROUTES_PG=$(python3 -c "import json; print(json.loads(open('/tmp/pg.txt').read()[5:])['Workers Routes Write'])")
+          ZONE_PG=$(python3 -c "import json; print(json.loads(open('/tmp/pg.txt').read()[5:]).get('Zone Read',''))")
+
+          POLICY="[{\"effect\":\"allow\",\"resources\":{\"com.cloudflare.api.account.zone.$ZID\":\"*\"},\"permission_groups\":[{\"id\":\"$ROUTES_PG\"}$( [ -n "$ZONE_PG" ] && echo ",{\"id\":\"$ZONE_PG\"}" )]}]"
+          MINT=$(curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens" \
+            -d "{\"name\":\"calculator-route-helper\",\"policies\":$POLICY}")
+          OK=$(echo "$MINT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('success'))")
+          if [ "$OK" != "True" ]; then
+            echo "::error::Token mint failed: $(echo "$MINT" | head -c 300)"
+            exit 1
+          fi
+          HELPER=$(echo "$MINT" | python3 -c "import json,sys; print(json.load(sys.stdin)['result']['value'])")
+          HELPER_ID=$(echo "$MINT" | python3 -c "import json,sys; print(json.load(sys.stdin)['result']['id'])")
+          echo "::notice::helper token minted"
+          sleep 8
+
+          for PATTERN in "localai.life/calculator*" "www.localai.life/calculator*"; do
+            R=$(curl -s -X POST -H "Authorization: Bearer $HELPER" -H "Content-Type: application/json" \
+              "$CF/zones/$ZID/workers/routes" -d "{\"pattern\":\"$PATTERN\",\"script\":\"calculator-site\"}")
+            echo "::notice::route $PATTERN: $(echo "$R" | head -c 250)"
+          done
+
+          curl -s -X DELETE -H "$AUTH" "$CF/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/$HELPER_ID" > /dev/null
+          echo "::notice::helper token destroyed"
+
+          for i in $(seq 1 10); do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://localai.life/calculator/" || echo err)
+            [ "$CODE" = "200" ] && break
+            sleep 15
+          done
+          echo "::notice::https://localai.life/calculator/ -> HTTP $CODE"
+          BODY=$(curl -s "https://localai.life/calculator/" | head -c 200)
+          echo "::notice::body starts: $BODY"

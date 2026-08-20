@@ -1,17 +1,171 @@
 {
   "per_category_limit": 220,
   "categories": {
-    "plastic_surgery": ["plastic surgery", "plastic surgeon", "rhinoplasty", "breast augmentation", "tummy tuck", "liposuction", "facelift", "bbl", "mommy makeover", "eyelid surgery", "nose job", "body contouring"],
-    "med_spa": ["botox", "lip filler", "med spa", "laser hair removal", "microneedling", "coolsculpting", "semaglutide", "morpheus8", "hydrafacial", "iv therapy", "weight loss clinic", "chemical peel"],
-    "eye_care": ["lasik", "cataract", "eye doctor", "optometrist", "ophthalmologist", "eye exam", "glaucoma", "dry eye", "contact lenses", "vision center"],
-    "dental": ["dentist", "dental", "invisalign", "veneers", "teeth whitening", "root canal", "orthodontist", "braces", "dental implant", "dentures", "smile makeover"],
-    "dermatology": ["dermatologist", "acne", "eczema", "psoriasis", "rosacea", "mole removal", "skin cancer", "hair loss treatment", "laser resurfacing", "skin clinic"],
-    "lawyers": ["lawyer", "attorney", "personal injury", "dui lawyer", "divorce lawyer", "immigration lawyer", "estate planning", "workers comp", "criminal defense", "car accident lawyer", "bankruptcy lawyer"],
-    "dispensaries": ["dispensary", "cannabis", "weed delivery", "marijuana", "cbd", "thc", "edibles", "delta 8", "recreational dispensary"],
-    "wellness": ["chiropractor", "physical therapy", "massage therapy", "acupuncture", "sports medicine", "cryotherapy", "float spa"],
-    "veterinary": ["veterinarian", "vet near me", "animal hospital", "emergency vet", "pet vaccination", "dog dental cleaning", "spay neuter"],
-    "beauty": ["hair salon", "barber", "nail salon", "lash extensions", "brow lamination", "spray tan", "waxing", "balayage"],
-    "home_services": ["hvac", "plumber", "electrician", "roofer", "landscaping", "pest control", "locksmith", "garage door repair", "house cleaning"],
-    "fitness": ["gym", "personal trainer", "pilates", "yoga studio", "crossfit", "boxing gym", "swim lessons"]
+    "plastic_surgery": [
+      "plastic surgery",
+      "plastic surgeon",
+      "rhinoplasty",
+      "breast augmentation",
+      "tummy tuck",
+      "liposuction",
+      "facelift",
+      "bbl",
+      "mommy makeover",
+      "eyelid surgery",
+      "nose job",
+      "body contouring"
+    ],
+    "med_spa": [
+      "botox",
+      "lip filler",
+      "med spa",
+      "laser hair removal",
+      "microneedling",
+      "coolsculpting",
+      "semaglutide",
+      "morpheus8",
+      "hydrafacial",
+      "iv therapy",
+      "weight loss clinic",
+      "chemical peel"
+    ],
+    "eye_care": [
+      "lasik",
+      "cataract",
+      "eye doctor",
+      "optometrist",
+      "ophthalmologist",
+      "eye exam",
+      "glaucoma",
+      "dry eye",
+      "contact lenses",
+      "vision center"
+    ],
+    "dental": [
+      "dentist",
+      "dental",
+      "invisalign",
+      "veneers",
+      "teeth whitening",
+      "root canal",
+      "orthodontist",
+      "braces",
+      "dental implant",
+      "dentures",
+      "smile makeover"
+    ],
+    "dermatology": [
+      "dermatologist",
+      "acne",
+      "eczema",
+      "psoriasis",
+      "rosacea",
+      "mole removal",
+      "skin cancer",
+      "hair loss treatment",
+      "laser resurfacing",
+      "skin clinic"
+    ],
+    "lawyers": [
+      "lawyer",
+      "attorney",
+      "personal injury",
+      "dui lawyer",
+      "divorce lawyer",
+      "immigration lawyer",
+      "estate planning",
+      "workers comp",
+      "criminal defense",
+      "car accident lawyer",
+      "bankruptcy lawyer"
+    ],
+    "dispensaries": [
+      "dispensary",
+      "cannabis",
+      "weed delivery",
+      "marijuana",
+      "cbd",
+      "thc",
+      "edibles",
+      "delta 8",
+      "recreational dispensary"
+    ],
+    "wellness": [
+      "chiropractor",
+      "physical therapy",
+      "massage therapy",
+      "acupuncture",
+      "sports medicine",
+      "cryotherapy",
+      "float spa"
+    ],
+    "veterinary": [
+      "veterinarian",
+      "vet near me",
+      "animal hospital",
+      "emergency vet",
+      "pet vaccination",
+      "dog dental cleaning",
+      "spay neuter"
+    ],
+    "beauty": [
+      "hair salon",
+      "barber",
+      "nail salon",
+      "lash extensions",
+      "brow lamination",
+      "spray tan",
+      "waxing",
+      "balayage"
+    ],
+    "home_services": [
+      "hvac",
+      "plumber",
+      "electrician",
+      "roofer",
+      "landscaping",
+      "pest control",
+      "locksmith",
+      "garage door repair",
+      "house cleaning"
+    ],
+    "fitness": [
+      "gym",
+      "personal trainer",
+      "pilates",
+      "yoga studio",
+      "crossfit",
+      "boxing gym",
+      "swim lessons"
+    ],
+    "restaurants": [
+      "restaurant near me",
+      "pizza near me",
+      "sushi",
+      "brunch",
+      "steakhouse",
+      "coffee shop",
+      "bakery",
+      "catering",
+      "tacos",
+      "bbq"
+    ],
+    "real_estate": [
+      "realtor",
+      "real estate agent",
+      "homes for sale",
+      "apartments for rent",
+      "property management",
+      "condos for sale"
+    ],
+    "auto": [
+      "auto repair",
+      "mechanic",
+      "oil change",
+      "tire shop",
+      "car detailing",
+      "body shop",
+      "car wash"
+    ]
   }
 }

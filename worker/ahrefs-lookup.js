@@ -26,7 +26,11 @@ const CATEGORIES = {
   cannabis: ["dispensary", "cannabis", "weed", "marijuana", "thc", "edibles", "delta 8", "delta 9", "cbd"],
   veterinary: ["vet ", "veterinar", "animal hospital", "pet ", "spay", "neuter"],
   wellness: ["chiropract", "physical therapy", "massage", "acupuncture", "cryotherapy"],
-  home_services: ["hvac", "plumb", "electrician", "roof", "landscap", "pest control", "locksmith", "garage door"],
+  home_services: ["hvac", "plumb", "electrician", "roof", "landscap", "pest control", "locksmith", "garage door", "house cleaning", "handyman"],
+  restaurants: ["restaurant", "pizza", "sushi", "taco", "brunch", "steakhouse", "cafe", "coffee shop", "bakery", "catering", "takeout", "happy hour", "bbq", "ramen", "burger", "menu"],
+  real_estate: ["realtor", "real estate", "homes for sale", "houses for sale", "apartments for rent", "condos", "property management", "new construction homes"],
+  auto: ["auto repair", "mechanic", "oil change", "tire shop", "body shop", "car wash", "auto detailing", "brake repair", "transmission", "smog check", "windshield"],
+  fitness: ["gym", "personal trainer", "pilates", "yoga", "crossfit", "boxing gym", "swim lessons", "martial arts"],
 };
 
 const VERTICAL_LABELS = {

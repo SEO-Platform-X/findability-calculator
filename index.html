@@ -129,7 +129,10 @@ react-dom/cjs/react-dom-client.production.js:
       '<div style="background:#FFFFFF;border:1px solid #C9D2CC;border-radius:10px;padding:14px 16px;">' +
       '<div style="font-family:\'Space Grotesk\',system-ui,sans-serif;font-weight:600;font-size:14px;color:#14232B;margin-bottom:8px;">Start with your website</div>' +
       '<div style="display:flex;gap:8px;">' +
-      '<input id="site-analyzer-input" placeholder="yourpractice.com" style="flex:1;border:1px solid #C9D2CC;border-radius:6px;padding:8px 12px;font-size:14px;outline:none;" />' +
+      '<div style="flex:1;position:relative;">' +
+      '<input id="site-analyzer-input" placeholder="Type your practice or brand name" autocomplete="off" style="width:100%;box-sizing:border-box;border:1px solid #C9D2CC;border-radius:6px;padding:8px 12px;font-size:14px;outline:none;" />' +
+      '<div id="site-analyzer-suggest" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #C9D2CC;border-radius:8px;margin-top:4px;box-shadow:0 8px 24px rgba(20,35,43,.12);overflow:hidden;"></div>' +
+      '</div>' +
       '<button id="site-analyzer-btn" style="background:#0C8A5F;color:#fff;border:none;border-radius:6px;padding:8px 18px;font-size:14px;font-weight:600;cursor:pointer;">Analyze</button>' +
       "</div>" +
       '<div id="site-analyzer-status" style="font-size:12px;color:#8B978F;margin-top:6px;">We detect your category and pull the keywords you already rank for.</div>' +
@@ -176,7 +179,7 @@ react-dom/cjs/react-dom-client.production.js:
             if (tab) tab.click();
             parts.push("Detected: " + p.vertical);
           } else if (p.category) {
-            parts.push("Detected: " + titleCase(p.category.replace(/_/g, " ")) + " (closest calculator category shown)");
+            parts.push("Detected: " + titleCase(p.category.replace(/_/g, " ")) + " \u00B7 your top ranking keywords loaded below");
           }
           if (p.city) parts.push(titleCase(p.city));
           parts.push(p.ranking_keywords + " ranking keywords found");
@@ -195,7 +198,55 @@ react-dom/cjs/react-dom-client.production.js:
         });
     }
     btn.addEventListener("click", run);
-    input.addEventListener("keydown", function (e) { if (e.key === "Enter") run(); });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { hideSuggest(); run(); }
+      if (e.key === "Escape") hideSuggest();
+    });
+
+    var suggest = document.getElementById("site-analyzer-suggest");
+    var debounceTimer = null;
+    function hideSuggest() { suggest.style.display = "none"; suggest.innerHTML = ""; }
+    function showSuggestions(items) {
+      if (!items.length) { hideSuggest(); return; }
+      suggest.innerHTML = "";
+      items.slice(0, 5).forEach(function (it) {
+        var row = document.createElement("div");
+        row.style.cssText = "display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;font-size:14px;";
+        row.onmouseenter = function () { row.style.background = "#F3F5F2"; };
+        row.onmouseleave = function () { row.style.background = "#fff"; };
+        var img = document.createElement("img");
+        img.src = it.logo || "";
+        img.style.cssText = "width:20px;height:20px;border-radius:4px;flex:none;";
+        img.onerror = function () { img.style.display = "none"; };
+        var name = document.createElement("span");
+        name.textContent = it.name;
+        name.style.cssText = "color:#14232B;font-weight:600;";
+        var dom = document.createElement("span");
+        dom.textContent = it.domain;
+        dom.style.cssText = "color:#8B978F;font-size:12px;margin-left:auto;";
+        row.appendChild(img); row.appendChild(name); row.appendChild(dom);
+        row.addEventListener("mousedown", function (e) {
+          e.preventDefault();
+          input.value = it.domain;
+          hideSuggest();
+          run();
+        });
+        suggest.appendChild(row);
+      });
+      suggest.style.display = "block";
+    }
+    input.addEventListener("input", function () {
+      var q = input.value.trim();
+      clearTimeout(debounceTimer);
+      if (q.length < 2 || q.indexOf(".") !== -1) { hideSuggest(); return; }
+      debounceTimer = setTimeout(function () {
+        fetch("https://autocomplete.clearbit.com/v1/companies/suggest?query=" + encodeURIComponent(q))
+          .then(function (r) { return r.ok ? r.json() : []; })
+          .then(function (items) { if (input.value.trim() === q) showSuggestions(items || []); })
+          .catch(function () { hideSuggest(); });
+      }, 220);
+    });
+    input.addEventListener("blur", function () { setTimeout(hideSuggest, 150); });
   });
 })();
 </script>

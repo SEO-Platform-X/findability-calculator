@@ -1,39 +1,12 @@
-name: Diagnostics
-
-on:
-  workflow_dispatch: {}
-
+name: diag
+on: workflow_dispatch
 jobs:
-  diag:
+  probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Ahrefs organic-keywords variants
-        env:
-          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+      - name: probe
         run: |
-          D=$(date -u -d "4 days ago" +%Y-%m-%d)
-          probe () {
-            NAME="$1"; shift
-            BODY=$(curl -s -w "\n%{http_code}" -H "Authorization: Bearer $AHREFS_API_KEY" "https://api.ahrefs.com/v3/site-explorer/organic-keywords?$1")
-            CODE=$(echo "$BODY" | tail -1)
-            JSON=$(echo "$BODY" | head -c 700)
-            echo "::notice::[$NAME] HTTP $CODE :: $JSON"
-          }
-          probe "quiktox-direct" "target=quiktox.com&mode=subdomains&country=us&date=$D&select=keyword,volume&limit=3&output=json"
-          W="https://findability-lookup.localairegistry.workers.dev"
-          for DOM in quiktox.com upkeepbeauty.com; do
-            B=$(curl -s -w "\n%{http_code}" "$W/profile?domain=$DOM" -H "Origin: https://localai.life")
-            echo "::notice::[live-profile $DOM] HTTP $(echo "$B" | tail -1) :: $(echo "$B" | head -1 | head -c 400)"
+          for d in amazon.com quiktox.com; do
+            R=$(curl -s "https://findability-lookup.localairegistry.workers.dev/profile?domain=$d")
+            echo "::notice::$d :: $(echo "$R" | head -c 300)"
           done
-
-      - name: Cloudflare DNS and token introspection
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          CF="https://api.cloudflare.com/client/v4"
-          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
-          ZID=$(curl -s -H "$AUTH" "$CF/zones?name=localai.life" | python3 -c "import json,sys; print(json.load(sys.stdin)['result'][0]['id'])")
-          echo "::notice::[dns-records] $(curl -s -H "$AUTH" "$CF/zones/$ZID/dns_records" | python3 -c "import json,sys; d=json.load(sys.stdin); print(json.dumps({'success': d.get('success'), 'errors': d.get('errors'), 'records': [{'type':r['type'],'name':r['name'],'content':r['content'][:60]} for r in (d.get('result') or [])]}))" | head -c 700)"
-          echo "::notice::[token-verify] $(curl -s -H "$AUTH" "$CF/user/tokens/verify" | head -c 300)"
-          echo "::notice::[perm-check-write] $(curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" "$CF/zones/$ZID/dns_records" -d '{"type":"TXT","name":"_claude-perm-check.localai.life","content":"probe"}' | head -c 300)"

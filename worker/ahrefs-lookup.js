@@ -118,7 +118,7 @@ async function handleProfile(url, cache, ip, env, cors) {
     .replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
   if (!DOMAIN_RE.test(domain)) return json({ error: "invalid domain" }, 400, cors);
 
-  const cacheKey = new Request("https://cache.internal/profile-v4/" + encodeURIComponent(domain));
+  const cacheKey = new Request("https://cache.internal/profile-v5/" + encodeURIComponent(domain));
   const hit = await cache.match(cacheKey);
   if (hit) return json({ ...(await hit.json()), cached: true }, 200, cors);
 
@@ -152,8 +152,12 @@ async function handleProfile(url, cache, ip, env, cors) {
   let top = uniq.filter((r) => r.volume >= 50).sort(byRelevance).slice(0, 8);
   if (top.length < 3) top = [...uniq].sort(byRelevance).slice(0, 5);
 
+  const vols = uniq.map((r) => r.volume).sort((a, b) => b - a);
+  const median = vols[Math.floor(vols.length / 2)] || 0;
+  const scope = city ? "local" : (median >= 10000 || (vols[0] || 0) >= 100000 ? "national" : "local");
+
   const body = {
-    domain, category,
+    domain, category, scope,
     vertical: VERTICAL_LABELS[category] || null,
     confidence: Math.round(confidence * 10) / 10,
     city,

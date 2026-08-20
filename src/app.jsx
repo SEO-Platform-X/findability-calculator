@@ -238,7 +238,8 @@ function App() {
       if (j.category) parts.push("Detected: " + titleCase(j.category.replace(/_/g, " ")));
       parts.push("showing only your rankings \u00B7 $500 avg value, edit per row");
     }
-    if (j.city) parts.push(titleCase(j.city));
+    if (j.scope === "national") { setMIdx(2); parts.push("National footprint \u2192 market set to National"); }
+    else if (j.city) { setMIdx(0); parts.push(titleCase(j.city)); }
     parts.push(j.ranking_keywords + " ranking keywords \u00B7 loaded " + Math.min(kws.length, CAP) + " below");
     setStatus(parts.join(" \u00B7 "));
   }

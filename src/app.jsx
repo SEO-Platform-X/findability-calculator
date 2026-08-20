@@ -437,6 +437,7 @@ function App() {
           for your closing strength. Searches and 12-month trends are Ahrefs US data (representative query per cluster, {meta.label} snapshot),
           scaled to your market. Customer values are editable per row.
         </p>
+        <p style={{ fontFamily: mono, fontSize: 11, color: C.faint, marginTop: 8 }}>build {window.BUILD || "dev"}</p>
       </div>
     </div>
   );

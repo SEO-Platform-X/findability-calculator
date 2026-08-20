@@ -13,13 +13,15 @@ export default {
       return Response.redirect(url.origin + "/calculator/", 302);
     }
     const path = url.pathname.slice("/calculator".length) || "/";
+    const isAsset = /\.(js|css|json|png|svg|woff2?)$/.test(path);
     const upstream = await fetch(UPSTREAM + path + url.search, {
       headers: { "User-Agent": "localai-life-proxy" },
-      cf: { cacheTtl: 300, cacheEverything: true },
+      cf: isAsset ? { cacheTtl: 120, cacheEverything: true } : { cacheTtl: 0 },
     });
     const headers = new Headers(upstream.headers);
     headers.delete("content-security-policy");
     headers.set("x-served-by", "localai-life-calculator-proxy");
+    if (!isAsset) headers.set("Cache-Control", "no-cache, must-revalidate");
     return new Response(upstream.body, { status: upstream.status, headers });
   },
 };

@@ -53,9 +53,19 @@ async function throttle(cache, kind, ip, limit) {
 }
 
 async function ahrefs(path, params, key) {
-  const res = await fetch(`https://api.ahrefs.com/v3/${path}?${new URLSearchParams(params)}`, {
-    headers: { Authorization: `Bearer ${key}`, Accept: "application/json" },
-  });
+  const url = `https://api.ahrefs.com/v3/${path}?${new URLSearchParams(params)}`;
+  const opts = {
+    headers: {
+      Authorization: `Bearer ${key}`,
+      Accept: "application/json",
+      "User-Agent": "findability-calculator/1.0 (+https://localai.life/calculator/)",
+    },
+  };
+  let res = await fetch(url, opts);
+  if (res.status === 429 || res.status >= 500) {
+    await new Promise((r) => setTimeout(r, 1200));
+    res = await fetch(url, opts);
+  }
   if (!res.ok) throw new Error(`ahrefs ${res.status}: ${(await res.text()).slice(0, 200)}`);
   return res.json();
 }
@@ -178,6 +188,9 @@ export default {
     const ip = request.headers.get("cf-connecting-ip") || "unknown";
 
     if (url.pathname.endsWith("/profile")) return handleProfile(url, cache, ip, env, cors);
+    if (!url.searchParams.get("kw")) {
+      return Response.redirect("https://localai.life/calculator/", 302);
+    }
     return handleKeyword(url, cache, ip, env, cors);
   },
 };

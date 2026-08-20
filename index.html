@@ -80,5 +80,115 @@ react-dom/cjs/react-dom-client.production.js:
 */
 
 </script>
+
+<script>
+// Website analyzer bar: appears only once the lookup worker is configured.
+(function () {
+  if (!window.AHREFS_LOOKUP_URL) return;
+  var BASE = window.AHREFS_LOOKUP_URL.replace(/\/+$/, "");
+
+  function ready(fn) {
+    if (document.readyState !== "loading") setTimeout(fn, 400);
+    else document.addEventListener("DOMContentLoaded", function () { setTimeout(fn, 400); });
+  }
+
+  function setNativeValue(input, value) {
+    var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+    setter.call(input, value);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  }
+
+  function findButtonByText(text) {
+    var btns = document.querySelectorAll("button");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].textContent.trim() === text) return btns[i];
+    }
+    return null;
+  }
+
+  function addCluster(kw, done) {
+    var input = document.querySelector('input[placeholder*="Add your own cluster"]');
+    var addBtn = findButtonByText("Add");
+    if (!input || !addBtn) return done();
+    setNativeValue(input, kw);
+    setTimeout(function () { addBtn.click(); setTimeout(done, 350); }, 120);
+  }
+
+  function titleCase(s) {
+    return s.replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  ready(function () {
+    var header = document.querySelector(".max-w-5xl");
+    if (!header || document.getElementById("site-analyzer")) return;
+
+    var bar = document.createElement("div");
+    bar.id = "site-analyzer";
+    bar.className = "max-w-5xl mx-auto px-6 pt-4";
+    bar.innerHTML =
+      '<div style="background:#FFFFFF;border:1px solid #C9D2CC;border-radius:10px;padding:14px 16px;">' +
+      '<div style="font-family:\'Space Grotesk\',system-ui,sans-serif;font-weight:600;font-size:14px;color:#14232B;margin-bottom:8px;">Start with your website</div>' +
+      '<div style="display:flex;gap:8px;">' +
+      '<input id="site-analyzer-input" placeholder="yourpractice.com" style="flex:1;border:1px solid #C9D2CC;border-radius:6px;padding:8px 12px;font-size:14px;outline:none;" />' +
+      '<button id="site-analyzer-btn" style="background:#0C8A5F;color:#fff;border:none;border-radius:6px;padding:8px 18px;font-size:14px;font-weight:600;cursor:pointer;">Analyze</button>' +
+      "</div>" +
+      '<div id="site-analyzer-status" style="font-size:12px;color:#8B978F;margin-top:6px;">We detect your category and pull the keywords you already rank for.</div>' +
+      "</div>";
+    header.parentNode.insertBefore(bar, header.nextSibling);
+
+    var input = document.getElementById("site-analyzer-input");
+    var btn = document.getElementById("site-analyzer-btn");
+    var status = document.getElementById("site-analyzer-status");
+
+    function run() {
+      var domain = input.value.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
+      if (!domain || domain.indexOf(".") === -1) { status.textContent = "Enter a domain like yourpractice.com"; return; }
+      btn.disabled = true;
+      status.textContent = "Analyzing " + domain + "\u2026 checking what you rank for (takes a few seconds)";
+      fetch(BASE + "/profile?domain=" + encodeURIComponent(domain))
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          if (!res.ok) {
+            status.textContent = res.j && res.j.error === "rate limited"
+              ? "Too many analyses from this connection. Try again in an hour."
+              : "Could not analyze that domain. Check the spelling and try again.";
+            return;
+          }
+          var p = res.j;
+          if (!p.ranking_keywords) {
+            status.textContent = domain + " has no measurable US rankings yet, which itself is a findability signal. Explore the categories below.";
+            return;
+          }
+          var parts = [];
+          if (p.vertical) {
+            var tab = findButtonByText(p.vertical);
+            if (tab) tab.click();
+            parts.push("Detected: " + p.vertical);
+          } else if (p.category) {
+            parts.push("Detected: " + titleCase(p.category.replace(/_/g, " ")) + " (closest calculator category shown)");
+          }
+          if (p.city) parts.push(titleCase(p.city));
+          parts.push(p.ranking_keywords + " ranking keywords found");
+          status.textContent = parts.join(" \u00B7 ");
+
+          var toAdd = (p.keywords || []).slice(0, 3).map(function (k) { return k.keyword; });
+          var i = 0;
+          setTimeout(function next() {
+            if (i >= toAdd.length) return;
+            addCluster(toAdd[i++], next);
+          }, 500);
+        })
+        .catch(function () {
+          btn.disabled = false;
+          status.textContent = "Analysis service unreachable. Try again shortly.";
+        });
+    }
+    btn.addEventListener("click", run);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") run(); });
+  });
+})();
+</script>
+
 </body>
 </html>

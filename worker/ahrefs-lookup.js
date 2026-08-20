@@ -92,18 +92,19 @@ async function handleProfile(url, cache, ip, env, cors) {
     .replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
   if (!DOMAIN_RE.test(domain)) return json({ error: "invalid domain" }, 400, cors);
 
-  const cacheKey = new Request("https://cache.internal/profile/" + encodeURIComponent(domain));
+  const cacheKey = new Request("https://cache.internal/profile-v2/" + encodeURIComponent(domain));
   const hit = await cache.match(cacheKey);
   if (hit) return json({ ...(await hit.json()), cached: true }, 200, cors);
 
   const bump = await throttle(cache, "profile", ip, PROFILE_LIMIT_PER_HOUR);
   if (!bump) return json({ error: "rate limited" }, 429, cors);
 
-  const today = new Date().toISOString().slice(0, 10);
+  // Ahrefs position data lags a few days; ask for a snapshot 4 days back.
+  const snapDate = new Date(Date.now() - 4 * 864e5).toISOString().slice(0, 10);
   let data;
   try {
     data = await ahrefs("site-explorer/organic-keywords", {
-      target: domain, mode: "subdomains", country: "us", date: today,
+      target: domain, mode: "subdomains", country: "us", date: snapDate,
       select: "keyword,volume,best_position", order_by: "volume:desc",
       limit: "60", output: "json",
     }, env.AHREFS_API_KEY);

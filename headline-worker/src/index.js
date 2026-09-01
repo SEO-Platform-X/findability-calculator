@@ -94,6 +94,7 @@ export default {
           "x-api-key": env.ANTHROPIC_API_KEY,
           "anthropic-version": "2023-06-01",
           "content-type": "application/json",
+          "user-agent": "headline-lab-worker/1.0",
         },
         body: JSON.stringify({
           model: "claude-sonnet-5",
@@ -101,8 +102,14 @@ export default {
           messages: [{ role: "user", content: buildPrompt(recent.map((a) => a.headline), angle) }],
         }),
       });
-      const data = await resp.json();
-      if (data.error) return json({ error: data.error.message || "model API error" }, 502);
+      const raw = await resp.text();
+      let data;
+      try {
+        data = JSON.parse(raw);
+      } catch (e) {
+        return json({ error: "upstream " + resp.status + ": " + raw.slice(0, 300) }, 502);
+      }
+      if (data.error) return json({ error: (data.error.message || "model API error") + " [" + resp.status + "]" }, 502);
       const text = (data.content || [])
         .filter((b) => b.type === "text")
         .map((b) => b.text)

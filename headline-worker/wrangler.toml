@@ -1,0 +1,7 @@
+name = "headline-lab"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "POOL"
+id = "__KV_ID__"

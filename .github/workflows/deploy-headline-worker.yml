@@ -58,6 +58,15 @@ jobs:
           printf '%s' "$ANTHROPIC_API_KEY" | npx --yes wrangler@4 secret put ANTHROPIC_API_KEY
           printf '%s' "$HEADLINE_PASSCODE" | npx --yes wrangler@4 secret put HEADLINE_PASSCODE
 
+      - name: Direct API check from runner
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          S=$(curl -s -o /tmp/direct.json -w "%{http_code}" https://api.anthropic.com/v1/messages \
+            -H "x-api-key: $ANTHROPIC_API_KEY" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" \
+            -d '{"model":"claude-sonnet-5","max_tokens":16,"messages":[{"role":"user","content":"say ok"}]}')
+          echo "::notice::direct anthropic [$S]: $(head -c 300 /tmp/direct.json)"
+
       - name: Smoke test
         env:
           HEADLINE_PASSCODE: ${{ secrets.HEADLINE_PASSCODE }}
